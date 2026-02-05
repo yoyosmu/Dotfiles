@@ -1,0 +1,59 @@
+(defpoll time :interval "1s" "date +'%I:%M'")
+(defpoll completeday :interval "1h" "date +'%A, %d %B'")
+(defpoll calendar_day :interval "10h" "date +%d")
+(defpoll calendar_month :interval "10h" "date +%m")
+(defpoll calendar_year :interval "10h" "date +%Y")
+
+;; Widgets
+
+(defwidget time []
+  (box :class "timebox"
+       :orientation "v"
+       :space-evenly false
+    (box :class "time-container"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+         :valign "center"
+      (label :text "${time}" :class "content")
+    )
+    (box :class "date-container"
+         :orientation "h"
+         :space-evenly true
+         :halign "center"
+      (label :text "${completeday}")
+    )
+  )
+)
+
+(defwidget cal []
+  (box :class "cal-box"
+       :orientation "v"
+       :space-evenly false
+    (calendar :class "cal"
+              :day calendar_day
+              :month calendar_month
+              :year calendar_year)
+  )
+)
+
+(defwidget date_widget []
+  (box :class "date"
+       :orientation "v"
+       :space-evenly false
+    (time)
+    (cal)
+  )
+)
+
+;; Window
+(defwindow date
+  :monitor 0 
+  :geometry (geometry :x "20px"
+                      :y "5px"
+                      :width "220px" 
+                      :height "280px"
+                      :anchor "right top")
+  :wm-ignore true
+  (date_widget)
+)

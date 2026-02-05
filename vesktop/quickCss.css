@@ -1,0 +1,129 @@
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    --font: 'figtree';
+    --code-font: '';
+    font-weight: 400;
+
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 1px;
+
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+    --border-hover-transition: 0.2s ease;
+
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    --custom-window-controls: on;
+    --window-control-size: 14px;
+
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-secondary);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+
+    --background-image: off;
+    --background-image-url: url('');
+
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    --custom-chatbar: aligned;
+    --chatbar-height: 47px;
+    --chatbar-padding: 8px;
+
+    --small-user-panel: on;
+}
+
+:root {
+    --colors: on;
+
+    /* text colors */
+    --text-0: hsla(150, 10%, 90%, 1);  /* text on colored elements */
+    --text-1: hsla(150, 12%, 85%, 1);  /* main text */
+    --text-2: hsla(150, 15%, 75%, 1);  /* headings / important text */
+    --text-3: hsla(150, 10%, 65%, 1);  /* normal text */
+    --text-4: hsla(150, 8%, 55%, 1);   /* icons / channels */
+    --text-5: hsla(150, 5%, 40%, 1);   /* muted channels / timestamps */
+
+    /* background colors */
+    --bg-1: hsla(150, 10%, 18%, 1);  /* dark buttons clicked */
+    --bg-2: hsla(150, 10%, 15%, 1);  /* dark buttons */
+    --bg-3: hsla(150, 10%, 12%, 1);  /* spacing / secondary */
+    --bg-4: hsla(150, 8%, 10%, 1);   /* main background */
+    --hover: hsla(150, 12%, 50%, 0.08); /* hover on buttons */
+    --active: hsla(150, 12%, 50%, 0.15); /* active buttons */
+    --active-2: hsla(150, 12%, 50%, 0.25); 
+    --message-hover: hsla(150, 10%, 5%, 0.1); 
+
+    /* accent colors (soft greens/teals inspired by the image) */
+    --accent-1: hsla(160, 20%, 60%, 1);
+    --accent-2: hsla(160, 15%, 55%, 1);
+    --accent-3: hsla(160, 10%, 50%, 1);
+    --accent-4: hsla(160, 12%, 45%, 1);
+    --accent-5: hsla(160, 10%, 40%, 1);
+    --accent-new: var(--accent-2);
+
+    --mention: linear-gradient(to right, hsla(160, 15%, 55%, 0.2) 40%, transparent);
+    --mention-hover: linear-gradient(to right, hsla(160, 15%, 55%, 0.3) 40%, transparent);
+    --reply: linear-gradient(to right, hsla(150, 10%, 65%, 0.2) 40%, transparent);
+    --reply-hover: linear-gradient(to right, hsla(150, 10%, 65%, 0.3) 40%, transparent);
+
+    /* status indicator colors */
+    --online: hsla(160, 20%, 60%, 1);
+    --dnd: hsla(5, 30%, 50%, 1);
+    --idle: hsla(40, 20%, 60%, 1);
+    --streaming: hsla(290, 15%, 55%, 1);
+    --offline: hsla(150, 8%, 55%, 1);
+
+    /* border colors */
+    --border-light: hsla(150, 12%, 50%, 0.1);
+    --border: hsla(150, 12%, 50%, 0.2);
+    --border-hover: hsla(150, 12%, 50%, 0.25);
+    --button-border: hsla(150, 0%, 100%, 0.08);
+
+    /* base colors (soft muted tones) */
+    --red-1: hsla(5, 15%, 65%, 1);
+    --red-2: hsla(5, 15%, 60%, 1);
+    --red-3: hsla(5, 15%, 55%, 1);
+    --red-4: hsla(5, 12%, 50%, 1);
+    --red-5: hsla(5, 12%, 45%, 1);
+
+    --green-1: hsla(160, 20%, 65%, 1);
+    --green-2: hsla(160, 15%, 60%, 1);
+    --green-3: hsla(160, 12%, 55%, 1);
+    --green-4: hsla(160, 10%, 50%, 1);
+    --green-5: hsla(160, 8%, 45%, 1);
+
+    --blue-1: hsla(180, 12%, 70%, 1);
+    --blue-2: hsla(180, 10%, 65%, 1);
+    --blue-3: hsla(180, 8%, 60%, 1);
+    --blue-4: hsla(180, 6%, 55%, 1);
+    --blue-5: hsla(180, 5%, 50%, 1);
+
+    --yellow-1: hsla(50, 15%, 70%, 1);
+    --yellow-2: hsla(50, 12%, 65%, 1);
+    --yellow-3: hsla(50, 10%, 60%, 1);
+    --yellow-4: hsla(50, 8%, 55%, 1);
+    --yellow-5: hsla(50, 5%, 50%, 1);
+
+    --purple-1: hsla(280, 12%, 65%, 1);
+    --purple-2: hsla(280, 10%, 60%, 1);
+    --purple-3: hsla(280, 8%, 55%, 1);
+    --purple-4: hsla(280, 6%, 50%, 1);
+    --purple-5: hsla(280, 5%, 45%, 1);
+}

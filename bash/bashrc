@@ -1,0 +1,19 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+alias ls='lsd'
+
+# Created by `pipx` on 2025-10-30 22:41:38
+export PATH="$PATH:/home/yoyomu/.local/bin"
+alias fastfetch='anifetch example.mp4 -ff'
+eval "$(starship init bash)"
+alias i='yay -Syu'
+alias c='sudo pacman -Rns $(pacman -Qdtq) && yay -Ycc'
+alias C='bleachbit -c --preset & sudo rm -rf ~/.cache/* /var/cache/pacman/pkg/* /home/yoyomu/.cache/yay/*'

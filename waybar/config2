@@ -1,0 +1,93 @@
+{
+  "output": "eDP-1",
+  "position": "bottom",
+  "layer": "top",
+  "height": 24,
+  "gtk-layer-shell": true,
+  "modules-center": [],
+  "modules-left": ["custom/launcher", "custom/launcher2", "custom/launcher3", "wlr/taskbar", "keyboard/state"],
+  "modules-right": ["group/system", "keyboard-state"],
+
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+
+  "wlr/taskbar": {
+      "format": "{icon} {title:.18}",
+      "icon-size": 16,
+      "on-click-middle": "close",
+      "tooltip-format": "{title}",
+      "ignore-list": [],
+      "tooltip": false,
+      "on-click": "activate"
+   },
+
+    "group/system": {
+        "orientation": "inherit",
+        "click-to-reveal": true,
+             "drawer": {
+                "transition-duration": 500,
+                "transition-left-to-right": false,
+    },
+    "modules": [
+          "custom/draweropener",
+          "cpu",
+          "memory", 
+          "disk"
+        ]
+    },
+
+   "custom/draweropener": {
+       "tooltip": false,
+       "format": "   "
+   },
+
+   "cpu": {
+       "interval": 5,
+       "format": "  {usage}%",
+       "max-length": 10
+   },
+
+   "disk": {
+       "interval": 30,
+       "format": "󰋊 {percentage_used}%",
+       "path": "/",
+       "tooltip": true,
+       "unit": "GB",
+       "tooltip-format":  "Available {free} of {total}"
+   },
+   
+   "memory": {
+       "interval": 10,
+       "format": "  {percentage}%",
+       "max-length": 10,
+       "tooltip": true,
+       "tooltip-format": "RAM - {used:0.1f}GiB used"
+   },
+
+  "custom/launcher": {
+    "on-click": "org.vinegarhq.Sober",
+    "format": " ",
+    "tooltip": false,
+    "return-type": "json"
+  },
+
+  "custom/launcher2": {
+    "on-click": "brave",
+    "format": " ",
+    "tooltip": false,
+    "return-type": "json"
+  },
+
+  "custom/launcher3": {
+    "on-click": "vesktop",
+    "format": " ",
+    "tooltip": false,
+    "return-type": "json"
+  }
+}

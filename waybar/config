@@ -1,0 +1,129 @@
+{
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "output": "eDP-1",
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "gtk-layer-shell": true,
+    //"spacing": 4,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/calender", "custom/weather", "clock", "group/group-power"],
+    "modules-center": [],
+    "tray": {
+        "spacing": 10
+    },
+
+    "hyprland/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace r+1",
+        "on-scroll-down": "hyprctl dispatch workspace r-1",
+
+     "persistent-workspaces": {
+         "*": [ 1,2,3 ]
+     }
+    },
+
+    "clock": {
+       "format": "{:%e %b 󰤃 %I:%M<small>%p</small>}",
+       "format-alt": "{:L%I:%M<small>%p</small>}",
+       "tooltip": false
+    },
+
+    "custom/weather": {
+        "format": "{}°c",
+        "tooltip": true,
+        "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
+        "return-type": "json"
+    },
+
+    "custom/calender": {
+       "format": "  ",
+       "on-click": "eww open --toggle date",
+       "tooltip": false
+    },
+
+    "group/group-power": {
+        "orientation": "inherit",
+             "drawer": {
+                "transition-duration": 500,
+                "children-class": "not-poweroff",
+                "transition-left-to-right": false,
+    },
+    "modules": [
+          "custom/poweroff", 
+          "custom/reboot",
+        ]
+    },
+
+    "custom/reboot": {
+       "format": " ",
+       "tooltip": false,
+       "on-click": "systemctl reboot"
+    },
+
+    "custom/poweroff": {
+       "format": " ",
+       "on-click": "systemctl poweroff",
+       "tooltip": false
+    },
+
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": " ",
+        "none": " ",
+        "dnd-notification": " ",
+        "dnd-none": " "
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1 && swaync-client -t -sw",
+      "escape": true
+     },
+
+    "backlight": {
+        "scroll-step": 5,
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-alt": "{icon}",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-alt": "{icon}",
+        "format-charging": " {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) {icon}",
+        "format-ethernet": "  {ifname}",
+        "format-icons": [" ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤯 "],
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "Disconnected 󰖪 {ifname}",
+        "format-alt": " {ifname}: {ipaddr}/{cidr}"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}{volume}%",
+        "format-bluetooth": " {icon}{volume}%",
+        "format-bluetooth-muted": "  ",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "default": ["", "", " "],
+    },
+    "format-alt": "{icon}",
+   "tooltip": false
+   },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    }
+}

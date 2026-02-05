@@ -1,0 +1,55 @@
+format = """
+[╭─](grey)\
+$os\
+$username\
+$hostname\
+[](fg:green)\
+$line_break\
+[╰─](grey)\
+$character\
+"""
+
+right_format = """
+[─╯](grey)\
+"""
+palette = 'hi'
+
+[palettes.hi]
+green = "#a6e3a1"
+grey = "#616161"
+text = "#ffffff"
+surface0 = "#1e1e1e"    
+subtext1 = "#bbbbbb"    
+
+[os]
+format = "[ $symbol]($style)()"
+style = "bg:grey fg:green"
+disabled = false
+
+[os.symbols]
+Arch = "\uf303 "
+[username]
+show_always = true
+style_user = "bg:green fg:surface0"
+style_root = "bg:green fg:surface0 bold"
+format = '[$user]($style)'
+
+[hostname]
+format = '[@$hostname ](bg:green fg:surface0)'
+ssh_only = false
+disabled = false
+
+[fill]
+symbol = ' '
+style = 'bold subtext1'
+
+[time]
+disabled = true # set to 'false', if you want to see the time
+
+[cmd_duration]
+disabled = true
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:green)'
