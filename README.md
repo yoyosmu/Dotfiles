@@ -89,5 +89,4 @@
 | Waybar | Eww |
 | :--- | :--- |
 | ![Top Bar](screenshots/TopBar) ![Bottom Bar](screenshots/BottomBar) | Eww widget here |
-| Bars | 
 | stuff | Eww widget here |
