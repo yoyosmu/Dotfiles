@@ -78,3 +78,13 @@
   <li><b>Screen Recorder:</b> OBS</li>
   <li><b>Audio Control:</b> Pavucontrol</li>
 </ul>
+
+
+<div align="center">
+
+##   Screenshots
+
+</div>
+
+![Top bar](TopBar/screenshot.png) ![Bottom bar](BottomBar/screenshot.png)
+
