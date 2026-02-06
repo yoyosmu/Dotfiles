@@ -86,10 +86,8 @@
 
 </div>
 
-| Waybar | Swaync/Eww |
+| Component | Preview |
 | :--- | :--- |
-| ![Top Bar](screenshots/TopBar) | <img src="screenshots/Calendar" width="70" alt="Terminal Apps"> |
-| ![Bottom Bar](screenshots/BottomBar) | <img src="screenshots/Swaync" width="70" alt="Terminal Apps"> |
-| Terminal | Lockscreen |
-| <img src="screenshots/TerminalApps" width="400" alt="Terminal Apps"> | <img src="screenshots/Hyprlock" width="1250" alt="Hyprlock"> |
-
+| **Waybar** | <img src="screenshots/TopBar" height="40"> |
+| **SwayNC & Eww** | <img src="screenshots/Calendar" height="150"> <img src="screenshots/Swaync" height="150"> |
+| **Terminal & Lock** | <img src="screenshots/TerminalApps" height="250"> <img src="screenshots/Hyprlock" height="250"> |
