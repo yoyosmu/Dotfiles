@@ -86,10 +86,10 @@
 
 </div>
 
-| Waybar | Eww |
+| Waybar | Swaync/Eww |
 | :--- | :--- |
-| ![Top Bar](screenshots/TopBar) | Eww widget here |
-![Bottom Bar](screenshots/BottomBar) | Eww widget here |
+| ![Top Bar](screenshots/TopBar) | ![Top Bar](screenshots/Calendar) |
+| ![Bottom Bar](screenshots/BottomBar) | ![Top Bar](screenshots/Swaync) |
 | Terminal | Lockscreen |
 | <img src="screenshots/TerminalApps" width="400" alt="Terminal Apps"> | <img src="screenshots/Hyprlock" width="1250" alt="Hyprlock"> |
 
