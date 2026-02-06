@@ -89,5 +89,5 @@
 | Component | Preview |
 | :--- | :--- |
 | Waybar | <img src="screenshots/TopBar" height="40"> <img src="screenshots/BottomBar" height="40"> |
-| SwayNC & Eww | <img src="screenshots/Calendar" width="200"> <img src="screenshots/Swaync" width="200"> |
+| SwayNC & Eww | <img src="screenshots/Calendar" width="200"> <img src="screenshots/Swaync" width="150"> |
 | Terminal & Lock | <img src="screenshots/TerminalApps" width="400"> <img src="screenshots/Hyprlock" width="400"> |
