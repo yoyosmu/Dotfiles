@@ -86,11 +86,7 @@
 
 </div>
 
-![Top Bar](screenshots/TopBar)
-![Bottom Bar](screenshots/BottomBar)
-
-
 | Bars | Widgets |
-| :--- | :--- | :--- |
-| *![Top Bar](screenshots/TopBar) | Eww widget here | 
-| ![Bottom Bar](screenshots/BottomBar)  | Eww widget here  | 
+| :--- | :--- |
+| ![Top Bar](screenshots/TopBar) | Eww widget here |
+| ![Bottom Bar](screenshots/BottomBar) | Eww widget here |
