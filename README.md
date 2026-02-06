@@ -90,5 +90,7 @@
 | :--- | :--- |
 | ![Top Bar](screenshots/TopBar) ![Bottom Bar](screenshots/BottomBar) | Eww widget here |
 | Terminal | Lockscreen |
-| ![Terminal Apps](screenshots/TerminalApps) | Hyprlock here |
+|<p align="center">
+  <img src="screenshots/TerminalApps" width="600" alt="Terminal Apps">
+</p> | Hyprlock here |
 
