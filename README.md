@@ -86,5 +86,5 @@
 
 </div>
 
-![Bottom Bar](screenshots/BottomBar)
 ![Top Bar](screenshots/TopBar)
+![Bottom Bar](screenshots/BottomBar)
