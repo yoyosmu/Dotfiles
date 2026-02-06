@@ -86,8 +86,8 @@
 
 </div>
 
-| Bars | Widgets |
+| Waybar | Eww |
 | :--- | :--- |
 | ![Top Bar](screenshots/TopBar) ![Bottom Bar](screenshots/BottomBar) | Eww widget here |
-| Bars | Widgets |
+| Bars | 
 | stuff | Eww widget here |
