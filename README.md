@@ -88,8 +88,8 @@
 
 | Waybar | Swaync/Eww |
 | :--- | :--- |
-| ![Top Bar](screenshots/TopBar) | ![Top Bar](screenshots/Calendar) |
-| ![Bottom Bar](screenshots/BottomBar) | ![Top Bar](screenshots/Swaync) |
+| ![Top Bar](screenshots/TopBar) | <img src="screenshots/Calendar" width="400" alt="Terminal Apps"> |
+| ![Bottom Bar](screenshots/BottomBar) | <img src="screenshots/Swaync" width="400" alt="Terminal Apps"> |
 | Terminal | Lockscreen |
 | <img src="screenshots/TerminalApps" width="400" alt="Terminal Apps"> | <img src="screenshots/Hyprlock" width="1250" alt="Hyprlock"> |
 
