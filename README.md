@@ -88,3 +88,14 @@
 
 ![Top Bar](screenshots/TopBar)
 ![Bottom Bar](screenshots/BottomBar)
+
+
+### 🖥️ Desktop Components
+
+| Category | Component | Last Update |
+| :--- | :--- | :--- |
+| **Window Manager** | Hyprland | 2 minutes ago |
+| **Status Bar** | Waybar (Top & Bottom) | 6 minutes ago |
+| **Notifications** | SwayNC | Yesterday |
+| **Terminal** | Kitty | Today |
+| **Shell** | Bash + Starship | Today |
