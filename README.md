@@ -90,12 +90,7 @@
 ![Bottom Bar](screenshots/BottomBar)
 
 
-### 🖥️ Desktop Components
-
-| Category | Component | Last Update |
+| Bars | Widgets |
 | :--- | :--- | :--- |
-| **Window Manager** | Hyprland | 2 minutes ago |
-| **Status Bar** | Waybar (Top & Bottom) | 6 minutes ago |
-| **Notifications** | SwayNC | Yesterday |
-| **Terminal** | Kitty | Today |
-| **Shell** | Bash + Starship | Today |
+| *![Top Bar](screenshots/TopBar) | Hyprland | 
+| ![Bottom Bar](screenshots/BottomBar)  | Waybar (Top & Bottom) | 
