@@ -89,4 +89,6 @@
 | Waybar | Eww |
 | :--- | :--- |
 | ![Top Bar](screenshots/TopBar) ![Bottom Bar](screenshots/BottomBar) | Eww widget here |
-| stuff | Eww widget here |
+| Terminal | Lockscreen |
+| ![Terminal Apps](screenshots/TerminalApps) | Hyprlock here |
+
