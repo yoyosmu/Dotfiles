@@ -94,4 +94,5 @@
 
 
 | Waybar | 
+| :--- |
 | <img src="screenshots/TopBar" height="40"> <img src="screenshots/BottomBar" height="40"> |
