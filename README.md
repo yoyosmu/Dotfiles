@@ -91,7 +91,7 @@
 | EwwC | SwayNC |
 | <img src="screenshots/Calendar" width="200"> |  <img src="screenshots/Swaync" width="150"> |
 | Terminal | Lock |
-| <img src="screenshots/TerminalApps" height="700"> | <img src="screenshots/Hyprlock"  width="700"> |
+| <img src="screenshots/TerminalApps" height="300"> | <img src="screenshots/Hyprlock"  width="700"> |
 
 
 
