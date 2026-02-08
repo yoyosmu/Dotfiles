@@ -57,7 +57,7 @@
 <ul style="display: inline-block; text-align: left;">
   <li><b>AUR Helper:</b> Yay</li>
   <li><b>File Manager:</b> Nemo</li>
-  <li><b>System Monitor:</b> Btop</li>
+  <li><b>System Monitor:</b> Bottom</li>
   <li><b>Screenshots:</b> Grim & Wl-clipboard</li>
   <li><b>Status Bar:</b> Waybar</li>
   <li><b>Widgets:</b> Eww</li>
