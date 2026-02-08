@@ -15,7 +15,8 @@ button:hover {
 }
 
 #keyboard-state {
-    padding: 6px;
+    font-size: 12px;
+    padding-right: 4px;
     color: #ffffff;         
 }
 
@@ -39,7 +40,7 @@ button:hover {
 #disk,
 #memory,
 #custom-draweropener {
-    padding: 3px;
+    padding: 4px;
 }
 
 #taskbar {
@@ -49,6 +50,7 @@ button:hover {
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
   transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 0;
 }
 
 #taskbar button.active {

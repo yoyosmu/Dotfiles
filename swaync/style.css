@@ -31,9 +31,8 @@ window {
 
 .widget-dnd {
     background: @bg;
-    padding: 1px 1px;
-    margin-top: 2px;    
-    border-radius: 6px;
+    padding: 2px 2px;
+    border-radius: 4px;
     font-size: 1rem;
     color: @text;
 }
@@ -45,7 +44,9 @@ window {
 }
 
 .widget-dnd>switch {
-    border-radius: 8px;
+    min-width: 50px;
+    min-height: 20px;
+    border-radius: 6px;
     border: 1px solid @maincolor; 
     margin-right: 5px;
     background: linear-gradient(to right,  alpha(@maincolor, 0.35), alpha(@maincolor, 0.7));
@@ -240,7 +241,6 @@ window {
     padding-left:5px;
     padding-top:1px; 
     border-radius: 7px;
-    margin-bottom: 10px;
     padding-bottom:2px; 
 }
 

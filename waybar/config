@@ -118,6 +118,8 @@
         "format-bluetooth-muted": "  ",
         "format-muted": " {volume}%",
         "format-icons": {
+            "headphone": " ",
+            "headset": " ",
             "default": ["", "", " "],
     },
     "format-alt": "{icon}",
