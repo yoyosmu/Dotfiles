@@ -61,6 +61,7 @@
   <li><b>Screenshots:</b> Grim & Wl-clipboard</li>
   <li><b>Status Bar:</b> Waybar</li>
   <li><b>Widgets:</b> Eww</li>
+  <li><b>OSD:</b> Wob</li>
   <li><b>Notification Center:</b> SwayNC</li>
   <li><b>Display Manager:</b> SDDM (Silent Theme)</li>
 </ul>
