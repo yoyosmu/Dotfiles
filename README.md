@@ -98,6 +98,10 @@
 | :---: |
 | <img src="screenshots/TopBar" height="40"> <br> <img src="screenshots/BottomBar" height="40"> |
 
+<div align="center">
+
 | <div align="center">Wallpaper</div> |
 | :---: |
 | <img src="screenshots/Background" width="1000"> |
+
+</div>
