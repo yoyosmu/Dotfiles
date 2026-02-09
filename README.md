@@ -21,6 +21,7 @@
   <li><b>CPU:</b> Intel i3-1115G4</li>
   <li><b>Memory:</b> 16GB DDR4</li>
   <li><b>Font:</b> Montserrat</li>
+  <li><b>Gtk Theme:</b> Matcha-dark-pueril</li>
   <li><b>Icon Theme:</b> Mint-y</li>
 </ul>
 
