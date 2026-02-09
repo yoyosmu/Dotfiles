@@ -97,3 +97,9 @@
 | Waybar |
 | :--- |
 | <img src="screenshots/TopBar" height="40"> <br> <img src="screenshots/BottomBar" height="40"> |
+
+<ul style="display: inline-block; text-align: left;">
+| Wallpaper |
+</ul>
+| :--- |
+| <img src="screenshots/Background" height="40"> |
