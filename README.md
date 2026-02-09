@@ -88,18 +88,16 @@
 </div>
 
 | Widgets | SwayNC |
-| :--- | :--- |
+| :---: | :---: |
 | <img src="screenshots/Calendar" width="200"> |  <img src="screenshots/Swaync" width="150"> |
 | Terminal stuff | Lockscreen |
 | <img src="screenshots/TerminalApps" height="300"> | <img src="screenshots/Hyprlock" height="300"> |
 
 
 | Waybar |
-| :--- |
+| :---: |
 | <img src="screenshots/TopBar" height="40"> <br> <img src="screenshots/BottomBar" height="40"> |
 
-<ul style="display: inline-block; text-align: left;">
-| Wallpaper |
-</ul>
-| :--- |
+| <div align="center">Wallpaper</div> |
+| :---: |
 | <img src="screenshots/Background" height="40"> |
