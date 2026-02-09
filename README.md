@@ -20,6 +20,8 @@
   <li><b>Device:</b> Aspire A515-56T</li>
   <li><b>CPU:</b> Intel i3-1115G4</li>
   <li><b>Memory:</b> 16GB DDR4</li>
+  <li><b>Font:</b> Montserrat</li>
+  <li><b>Icon Theme:</b> Mint-y</li>
 </ul>
 
 <div align="center">
@@ -29,8 +31,8 @@
 </div>
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>Network:</b> NetworkManager & iwd</li>
-  <li><b>Bluetooth:</b> Bluez & Blueman</li>
+  <li><b>Network:</b> NetworkManager</li>
+  <li><b>Bluetooth:</b> Overskride</li>
   <li><b>VPN:</b> Riseup VPN</li>
 </ul>
 
@@ -44,7 +46,7 @@
   <li><b>App Launcher:</b> Rofi</li>
   <li><b>Terminal:</b> Kitty</li>
   <li><b>Browser:</b> Brave</li>
-  <li><b>Internet Messanger:</b> Vesktop</li>
+  <li><b>Internet Messenger:</b> Vesktop</li>
   <li><b>Editor:</b> Micro</li>
 </ul>
 
