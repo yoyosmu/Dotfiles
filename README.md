@@ -100,4 +100,4 @@
 
 | <div align="center">Wallpaper</div> |
 | :---: |
-| <img src="screenshots/Background" width="1500"> |
+| <img src="screenshots/Background" width="500"> |
