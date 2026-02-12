@@ -76,11 +76,36 @@
 </div>
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>Music Player:</b>  Spotify</li>
-  <li><b>Video Player:</b> MPV</li>
-  <li><b>Sound Server:</b> Pipewire</li>
-  <li><b>Screen Recorder:</b> OBS</li>
-  <li><b>Audio Control:</b> Pavucontrol</li>
+  <li>
+    <details>
+      <summary><b>Music Player:</b> Spotify</summary>
+      More details about Spotify setup or usage.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Video Player:</b> MPV</summary>
+      Info on MPV configuration or keybindings.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Sound Server:</b> Pipewire</summary>
+      Pipewire features or troubleshooting tips.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Screen Recorder:</b> OBS</summary>
+      OBS scene setup or recording shortcuts.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Audio Control:</b> Pavucontrol</summary>
+      How to route audio devices using Pavucontrol.
+    </details>
+  </li>
 </ul>
 
 
