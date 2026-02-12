@@ -13,17 +13,67 @@
 
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>OS:</b> Arch Linux x86_64</li>
-  <li><b>Window Manager:</b> Hyprland</li>
-  <li><b>Kernel:</b> 6.13.1-zen1-1-zen</li>
-  <li><b>Shell:</b> Bash</li>
-  <li><b>Device:</b> Aspire A515-56T</li>
-  <li><b>CPU:</b> Intel i3-1115G4</li>
-  <li><b>Memory:</b> 16GB DDR4</li>
-  <li><b>Font:</b> Montserrat</li>
-  <li><b>Gtk Theme:</b> Matcha-dark-pueril</li>
-  <li><b>Icon Theme:</b> Mint-y</li>
-</ul>
+  <li>
+    <details>
+      <summary><b>OS:</b> Arch Linux x86_64</summary>
+      Additional info about your OS setup.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Window Manager:</b> Hyprland</summary>
+      Details on Hyprland configuration.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Kernel:</b> 6.13.1-zen1-1-zen</summary>
+      Info about kernel optimizations.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Shell:</b> Bash</summary>
+      Custom aliases or shell features.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Device:</b> Aspire A515-56T</summary>
+      Hardware specs or modifications.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>CPU:</b> Intel i3-1115G4</summary>
+      Performance notes or thermal behavior.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Memory:</b> 16GB DDR4</summary>
+      RAM usage or configuration.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Font:</b> Montserrat</summary>
+      How you configured the font.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Gtk Theme:</b> Matcha-dark-pueril</summary>
+      Theme customization tips.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Icon Theme:</b> Mint-y</summary>
+      Icon set details or tweaks.
+    </details>
+  </li>
+</ul>   
 
 <div align="center">
 
@@ -32,10 +82,25 @@
 </div>
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>Network:</b> NetworkManager</li>
-  <li><b>Bluetooth:</b> Overskride</li>
-  <li><b>VPN:</b> Riseup VPN</li>
-</ul>
+  <li>
+    <details>
+      <summary><b>Network:</b> NetworkManager</summary>
+      Details about NetworkManager configuration or usage.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Bluetooth:</b> Overskride</summary>
+      Info on Overskride features or setup.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>VPN:</b> Riseup VPN</summary>
+      Notes on connecting or securing your connection.
+    </details>
+  </li>
+</ul>  
 
 <div align="center">
 
@@ -44,12 +109,37 @@
 </div>
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>App Launcher:</b> Rofi</li>
-  <li><b>Terminal:</b> Kitty</li>
-  <li><b>Browser:</b> Brave</li>
-  <li><b>Internet Messenger:</b> Vesktop</li>
-  <li><b>Editor:</b> Micro</li>
-</ul>
+  <li>
+    <details>
+      <summary><b>App Launcher:</b> Rofi</summary>
+      Additional info about Rofi configuration or usage.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Terminal:</b> Kitty</summary>
+      Notes on Kitty themes, keybindings, or performance.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Browser:</b> Brave</summary>
+      Sync settings, extensions, or privacy features.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Internet Messenger:</b> Vesktop</summary>
+      Customization tips or Discord integration details.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Editor:</b> Micro</summary>
+      Plugin setup, color schemes, or config file location.
+    </details>
+  </li>
+</ul>   
 
 <div align="center">
 
@@ -58,16 +148,61 @@
 </div>
 
 <ul style="display: inline-block; text-align: left;">
-  <li><b>AUR Helper:</b> Yay</li>
-  <li><b>File Manager:</b> Nemo</li>
-  <li><b>System Monitor:</b> Bottom</li>
-  <li><b>Screenshots:</b> Grim & Wl-clipboard</li>
-  <li><b>Status Bar:</b> Waybar</li>
-  <li><b>Widgets:</b> Eww</li>
-  <li><b>OSD:</b> Wob</li>
-  <li><b>Notification Center:</b> SwayNC</li>
-  <li><b>Display Manager:</b> SDDM (Silent Theme)</li>
-</ul>
+  <li>
+    <details>
+      <summary><b>AUR Helper:</b> Yay</summary>
+      Details about Yay usage or setup.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>File Manager:</b> Nemo</summary>
+      Info on Nemo extensions or configuration.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>System Monitor:</b> Bottom</summary>
+      Customization tips for bottom.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Screenshots:</b> Grim & Wl-clipboard</summary>
+      Usage example: `grim -g \"$(slurp)\" | wl-copy`.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Status Bar:</b> Waybar</summary>
+      Styling with CSS and module setup.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Widgets:</b> Eww</summary>
+      Written in Nix, used for custom GUIs.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>OSD:</b> Wob</summary>
+      Lightweight progress bar for volume/brightness.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Notification Center:</b> SwayNC</summary>
+      Integrates with Wayland and Sway.
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary><b>Display Manager:</b> SDDM (Silent Theme)</summary>
+      Minimalist theme for SDDM.
+    </details>
+  </li>
+</ul>   
 
 <div align="center">
 
