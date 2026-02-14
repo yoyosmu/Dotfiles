@@ -151,37 +151,37 @@
   <li>
     <details>
       <summary><b>AUR Helper:</b> Yay</summary>
-      Details about Yay usage or setup.
+      Dependencies: pacman, git.
     </details>
   </li>
   <li>
     <details>
       <summary><b>File Manager:</b> Nemo</summary>
-      Info on Nemo extensions or configuration.
+      Dependencies: at-spi2-core, bash, cairo, cinnamon-desktop, dconf, exempi, gcc-libs, gdk-pixbuf2, glib2, glibc, gtk3, gvfs, hicolor-icon-theme, json-glib, libexif, libx11, libxmlb, pango, python, python-cairo, python-gobject, xapp
     </details>
   </li>
   <li>
     <details>
       <summary><b>System Monitor:</b> Bottom</summary>
-      Customization tips for bottom.
+     Dependencies: glibc, libgcc
     </details>
   </li>
   <li>
     <details>
       <summary><b>Screenshots:</b> Grim & Wl-clipboard</summary>
-      Usage example: `grim -g \"$(slurp)\" | wl-copy`.
+      Dependencies: cairo ,libjpeg-turbo, wayland
     </details>
   </li>
   <li>
     <details>
       <summary><b>Status Bar:</b> Waybar</summary>
-      Styling with CSS and module setup.
+      Dependencies: atkmm, cairomm, fmt, gcc-libs, glib2, glibc, glibmm, gpsd, gtk-layer-shell, gtk3, gtkmm3, jack, jsoncpp, libdbusmenu-gtk3, libevdev, libinput, libmpdclient, libnl, libpipewire, libpulse, libsigc++, libwireplumber, libxkbcommon, playerctl, sndio, spdlog, systemd-libs, upower, wayland.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Widgets:</b> Eww</summary>
-      Written in Nix, used for custom GUIs.
+      Dependencies: libdbusmenu-gtk3, gtk3, gtk-layer-shell.
     </details>
   </li>
   <li>
