@@ -70,7 +70,7 @@
   <li>
     <details>
       <summary><b>Icon Theme:</b> Mint-y</summary>
-       Dependencies: gtk-update-icon-cache, hicolor-icon-theme
+       Dependencies: gtk-update-icon-cache, hicolor-icon-theme.
     </details>
   </li>
 </ul>   
@@ -85,13 +85,13 @@
   <li>
     <details>
       <summary><b>Network:</b> NetworkManager</summary>
-      Details about NetworkManager configuration or usage.
+      Dependencies: curl, dbus, gnutls, libgudev, libndp, libnewt, libnm, libpsl, libutil-linux, nss, polkit, readline, systemd-libs.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Bluetooth:</b> Overskride</summary>
-      Info on Overskride features or setup.
+      Dependencies: bluez, libadwaita, libpulse.
     </details>
   </li>
   <li>
@@ -112,31 +112,31 @@
   <li>
     <details>
       <summary><b>App Launcher:</b> Rofi</summary>
-      Additional info about Rofi configuration or usage.
+      Dependencies: bash, cairo, gdk-pixbuf2, glib2, glibc, hicolor-icon-theme, libxcb, libxkbcommon, libxkbcommon-x11, pango, startup-notification, wayland, xcb-imdkit, xcb-util, xcb-util-cursor, xcb-util-keysyms, xcb-util-wm.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Terminal:</b> Kitty</summary>
-      Notes on Kitty themes, keybindings, or performance.
+      Dependencies: cairo, dbus, freetype2, fontconfig, harfbuzz, hicolor-icon-theme, lcms2, libgl, libpng, librsync, libx11, libxcursor, libxkbcommon, libxkbcommon-x11, libxi, openssl, python3, wayland, xxhash, zlib, kitty-terminfo, kitty-shell-integration.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Browser:</b> Brave</summary>
-      Sync settings, extensions, or privacy features.
+      Dependencies: alsa-lib, gtk3, libxss, nss, ttf-font.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Internet Messenger:</b> Vesktop</summary>
-      Customization tips or Discord integration details.
+      Dependencies: alsa-lib, gtk3, nss.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Editor:</b> Micro</summary>
-      Plugin setup, color schemes, or config file location.
+      Dependencies: glibc, hicolor-icon-theme.
     </details>
   </li>
 </ul>   
