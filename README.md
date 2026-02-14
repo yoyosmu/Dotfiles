@@ -22,7 +22,7 @@
   <li>
     <details>
       <summary><b>Window Manager:</b> Hyprland</summary>
-      Details on Hyprland configuration.
+      Dependencies: aquamarine, cairo, gcc-libs, glib2, glslang, hyprcursor, hyprgraphics, hyprland-guiutils, hyprlang, hyprutils, hyprwayland-scanner, hyprwire, libdisplay-info, libdrm, libglvnd, libinput, libliftoff, libx11, libxcb, libxcomposite, libxcursor, libxfixes, libxkbcommon, libxrender, mesa, muparser, pango, pixman, re2, seatd, systemd-libs, tomlplusplus, util-linux-libs, wayland, wayland-protocols, xcb-proto, xcb-util, xcb-util-errors, xcb-util-image, xcb-util-keysyms, xcb-util-renderutil, xcb-util-wm, xorg-xwayland.
     </details>
   </li>
   <li>
