@@ -187,19 +187,19 @@
   <li>
     <details>
       <summary><b>OSD:</b> Wob</summary>
-      Lightweight progress bar for volume/brightness.
+      Dependencies: glibc, libinih, libseccomp, wayland.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Notification Center:</b> SwayNC</summary>
-      Integrates with Wayland and Sway.
+      Dependencies: glib2, granite7, gtk4, gtk4-layer-shell, json-glib, libadwaita, libgee, libpulse.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Display Manager:</b> SDDM (Silent Theme)</summary>
-      Minimalist theme for SDDM.
+      Dependencies: bash, gcc-libs, glibc, libxau, libxcb, pam, qt6-base, qt6-declarative, systemd-libs, ttf-font, xorg-server, xorg-xauth
     </details>
   </li>
 </ul>   
@@ -214,31 +214,31 @@
   <li>
     <details>
       <summary><b>Music Player:</b> Spotify</summary>
-      More details about Spotify setup or usage.
+      Dependencies: alsa-lib, at-spi2-atk, gcc-libs, glibc, gtk3, hicolor-icon-theme, libayatana-appindicator, libcurl-gnutls, libsm, libxss, nss, sequoia-sqv, xz, zenity.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Video Player:</b> MPV</summary>
-      Info on MPV configuration or keybindings.
+      Dependencies: alsa-lib, desktop-file-utils, ffmpeg, glibc, hicolor-icon-theme, jack, lcms2, libarchive, libass, libbluray, libcdio, libcdio-paranoia, libdisplay-info, libdrm, libdvdnav, libdvdread, libegl, libgl, libglvnd, libjpeg-turbo, libplacebo, libpulse, libsixel, libva, libvdpau, libx11, libxext, libxkbcommon, libxpresent, libxrandr, libxss, libxv, luajit, mesa, mujs, libpipewire, rubberband, sdl2, openal, uchardet, vapoursynth, vulkan-icd-loader, wayland, zlib.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Sound Server:</b> Pipewire</summary>
-      Pipewire features or troubleshooting tips.
+      Dependencies: dbus, gcc-libs, glib2, glibc, libpipewire, ncurses, readline, systemd-libs.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Screen Recorder:</b> OBS</summary>
-      OBS scene setup or recording shortcuts.
+      Dependencies: ffmpeg, jansson, libxinerama, libxkbcommon-x11, mbedtls, rnnoise, pciutils, qt6-svg, curl, jack, gtk-update-icon-cache, pipewire, libxcomposite, libdatachannel, uthash, simde, qrcodegencpp-cmake.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Audio Control:</b> Pavucontrol</summary>
-      How to route audio devices using Pavucontrol.
+      Dependencies: gcc-libs, glib2, glibc, glibmm-2.68, gtk4, gtkmm-4.0, json-glib, libcanberra, libpulse, libsigc++-3.0.
     </details>
   </li>
 </ul>
