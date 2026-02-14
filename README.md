@@ -28,13 +28,13 @@
   <li>
     <details>
       <summary><b>Kernel:</b> 6.13.1-zen1-1-zen</summary>
-      Info about kernel optimizations.
+      Dependencies: coreutils, initramfs, kmod.
     </details>
   </li>
   <li>
     <details>
       <summary><b>Shell:</b> Bash</summary>
-      Custom aliases or shell features.
+      Dependencies: readline, libreadline.so=8-64, glibc, ncurses
     </details>
   </li>
   <li>
@@ -58,7 +58,7 @@
   <li>
     <details>
       <summary><b>Font:</b> Montserrat</summary>
-      How you configured the font.
+      (https://fonts.google.com/specimen/Montserrat)
     </details>
   </li>
   <li>
@@ -70,7 +70,7 @@
   <li>
     <details>
       <summary><b>Icon Theme:</b> Mint-y</summary>
-      Icon set details or tweaks.
+       Dependencies: gtk-update-icon-cache, hicolor-icon-theme
     </details>
   </li>
 </ul>   
