@@ -1,12 +1,13 @@
-$bg: rgba(110, 141, 100, 0.25);       
+$bg: rgba(110, 141, 100, 0.1);       
 $contrastbg: rgba(166, 255, 161, 0.1); 
-$fg: rgba(232, 232, 232, 1);             
+$fg: rgba(232, 232, 232, 0.85);             
 $green: rgba(166, 237, 161, 1);      
 $lightblack: rgba(0, 0, 0, 0.55);   
   
 .date {
   background-color: $bg;
   color: $fg;
+  border: 1px solid rgba(0, 0, 0, 0.08); 
   border-radius: 10px;
 }
 
