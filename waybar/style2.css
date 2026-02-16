@@ -20,6 +20,13 @@ button:hover {
     color: #ffffff;         
 }
 
+#custom-search {
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #keyboard-state label.locked {
 }
 

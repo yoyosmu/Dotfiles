@@ -108,8 +108,8 @@ button:hover {
   font-weight: bold;
 }
 
-
 #custom-notification {
+  padding-left: 2px;
   font-size:14px;
 }
 
