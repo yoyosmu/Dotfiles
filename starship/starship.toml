@@ -1,6 +1,9 @@
 format = """
 [╭─](grey)\
 $os\
+[](bg:blue fg:grey)\
+$directory\
+[](bg:green fg:blue)\
 $username\
 $hostname\
 [](fg:green)\
@@ -16,18 +19,21 @@ palette = 'hi'
 
 [palettes.hi]
 green = "#a6e3a1"
+# green = "#689d6a"
+blue = "#9fbdde"
 grey = "#616161"
-text = "#ffffff"
+text = "#DDDAD3"
 surface0 = "#1e1e1e"    
 subtext1 = "#bbbbbb"    
 
 [os]
 format = "[ $symbol]($style)()"
-style = "bg:grey fg:green"
+style = "bg:grey fg:text"
 disabled = false
 
 [os.symbols]
 Arch = "\uf303 "
+
 [username]
 show_always = true
 style_user = "bg:green fg:surface0"
@@ -53,3 +59,10 @@ disabled = true
 disabled = false
 success_symbol = '[❯](bold fg:green)'
 error_symbol = '[❯](bold fg:green)'
+
+[directory]
+style = "bg:blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
