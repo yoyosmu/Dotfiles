@@ -43,7 +43,7 @@
     },
 
     "custom/search": {
-       "format": "󰣇 ",
+       "format": " ",
        "on-click": "nwg-menu -ha left -va bottom -ml 10 -mb 10 -wm hyprland -cmd-lock 'hyprlock' -cmd-logout 'hyprctl dispatch exit' -cmd-restart 'systemctl reboot' -cmd-shutdown 'systemctl poweroff' -fm 'nemo' -term 'kitty'",
        "tooltip": false
     },

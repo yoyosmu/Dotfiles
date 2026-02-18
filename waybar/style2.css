@@ -16,14 +16,14 @@ button:hover {
 
 #keyboard-state {
     font-size: 12px;
-    padding-right: 4px;
+    padding-right: 8px;
     color: #ffffff;         
 }
 
 #custom-search {
   padding-left: 6px;
   padding-right: 6px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
