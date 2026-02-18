@@ -4,9 +4,9 @@
 
 ---
 
-# Installation
+# Screenshots
 
-`bash install_dotfiles.sh`
+Widget system: Eww
 
 ## Overview
 
@@ -25,4 +25,4 @@
 
 ## My Desktop
 
-![hypr](assets/screenshots/plain.png)
+![hypr](assets/screenshots/Dkestop.png)
