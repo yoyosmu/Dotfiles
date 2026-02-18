@@ -1,6 +1,6 @@
 <h1 align="center">My Hyprland Config</h1>
 
-![Screenshot of setup](assets/screenshots/main.png)
+![Screenshot of setup](screenshots/main.png)
 
 ---
 
@@ -25,4 +25,4 @@ Widget system: Eww
 
 ## My Desktop
 
-![hypr](assets/screenshots/Dkestop.png)
+![hypr](screenshots/Desktop.png)
