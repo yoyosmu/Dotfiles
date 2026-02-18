@@ -23,6 +23,6 @@
 - GTK Theme: [Matcha Dark Pueril](https://github.com/vinceliuice/Matcha-gtk-theme)
 - Fonts: [Montserrat](https://github.com/JulietaUla/Montserrat)
 
-## Plain Desktop
+## My Desktop
 
 ![hypr](assets/screenshots/plain.png)
