@@ -20,8 +20,8 @@
 
 ## Appearance
 
-- GTK Theme: [Matcha Dark Pueril](https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme)
-- Fonts: [Montserrat](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip)
+- GTK Theme: [Matcha Dark Pueril](https://github.com/vinceliuice/Matcha-gtk-theme)
+- Fonts: [Montserrat](https://github.com/JulietaUla/Montserrat)
 
 ## Plain Desktop
 
