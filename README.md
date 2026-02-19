@@ -1,6 +1,6 @@
 <h1 align="center">My Hyprland Config</h1>
 
-![](screenshots/main.png)
+![image](screenshots/main.png)
 
 ---
 
@@ -31,4 +31,4 @@ Widget system: `Eww`
 
 ## My Desktop
 
-![](screenshots/Desktop.png)
+![image](screenshots/Desktop.png)
