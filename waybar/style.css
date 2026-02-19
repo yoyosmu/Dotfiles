@@ -22,6 +22,25 @@ window#waybar.hidden {
 #workspaces {
 }
 
+#workspaces button {
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    border-top: 2px solid #ffffff;
+    color: #ffffff;
+    background: transparent;
+    min-width: 45px;
+    transition: all 0.3s ease-in;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  border-top: 2px solid #ffffff;
+  color: #ffffff;
+  min-width: 45px;
+}
+
 button {
   box-shadow: inset 0 -3px transparent;
   color: rgba(225, 225, 225, 0.3);
@@ -35,36 +54,6 @@ button {
 button:hover {
   background: inherit;
   border-top: 2px solid #ffffff;
-}
-
-#workspaces button {
-  padding: 0 10px;
-}
-
-#workspaces button:last-child {
-  border-bottom-right-radius: 5px;
-}
-
-#workspaces button:hover {
-}
-
-#workspaces button.focused {
-  background: transparent;
-  color: #ffffff;
-  border-top: 2px solid #ffffff;
-  padding: 0 10px;
-}
-
-#workspaces button.active {
-  background: transparent;
-  color: #ffffff;
-  border-top: 2px solid #ffffff;
-  padding: 0 10px;
-}
-
-#workspaces button.urgent {
-  border-top: 2px solid #ffffff;
-  padding: 0 10px;
 }
 
 #tray > * {
@@ -97,7 +86,7 @@ button:hover {
 
 #custom-weather {
   padding-left: 4px;
-  padding-left: 4px;
+  padding-left: 8px;
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
