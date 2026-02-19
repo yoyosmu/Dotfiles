@@ -1,6 +1,6 @@
 <h1 align="center">My Hyprland Config</h1>
 
-![image](screenshots/main.png)
+![image](screenshots/Main.png)
 
 ---
 
