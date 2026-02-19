@@ -1,6 +1,6 @@
 <h1 align="center">My Hyprland Config</h1>
 
-![Screenshot of setup](screenshots/main.png)
+![](screenshots/main.png)
 
 ---
 
@@ -16,7 +16,7 @@ Widget system: `Eww`
 
 ## Overview
 
-[Hyprland](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
+[](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
 - **Operating System**: `Arch Linux`
 - **Window Manager**: `Hyprland`
@@ -31,4 +31,4 @@ Widget system: `Eww`
 
 ## My Desktop
 
-![hypr](screenshots/Desktop.png)
+![](screenshots/Desktop.png)
