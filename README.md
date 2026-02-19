@@ -6,7 +6,7 @@
 
 # Screenshots
 
-Widget system: `Eww`
+- **Widget system**: `Eww`
 
 | awd | awd |
 |:---|:---------------|
