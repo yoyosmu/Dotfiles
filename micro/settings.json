@@ -2,5 +2,8 @@
     "colorscheme": "mycolorscheme",
     "mkparents": true,
     "scrollbar": true,
-    "scrollbarchar": "█"
+    "scrollbarchar": "█",
+    "aspell.check": "on",
+    "aspell.lang": "en_US",
+    "aspell.sugmode": "fast"    
 }

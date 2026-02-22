@@ -3,4 +3,6 @@
     "CtrlUnderscore": "lua:comment.comment",
     "Ctrl-x": "Quit",
     "Ctrl-o": "Save",
+    "Ctrl-f": "command:fzf",
+    "Ctrl-g": "command:togglecheck"
 }
