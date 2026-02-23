@@ -19,7 +19,6 @@ palette = 'hi'
 
 [palettes.hi]
 green = "#a6e3a1"
-# green = "#689d6a"
 blue = "#9fbdde"
 grey = "#616161"
 text = "#DDDAD3"
@@ -61,7 +60,7 @@ success_symbol = '[❯](bold fg:green)'
 error_symbol = '[❯](bold fg:green)'
 
 [directory]
-style = "bg:blue"
+style = "bg:blue fg:surface0"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
