@@ -1,6 +1,7 @@
 use rand::random;
 use gtk4::prelude::*;
 use gtk4::{Application, ApplicationWindow, Button, Label, Box, Orientation};
+use hyprland::keyword::Keyword;
 
 fn main() {
     let app = Application::builder()
@@ -38,7 +39,9 @@ fn build_ui(app: &Application) {
         .child(&content)
         .build();
 
-        content.set_size_request(200, 100);
+        let _ = Keyword::set("windowrule", "float 1, match:class org.yoyomu.hyprclicker");
+
+        content.set_size_request(300, 200);
         button.connect_clicked(move |_| flip_coin(&label));
 
         window.show();
@@ -51,4 +54,3 @@ fn flip_coin(label: &Label) {
         label.set_text("tails");	
     }
 }
-
