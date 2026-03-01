@@ -12,9 +12,6 @@ $line_break\
 $character\
 """
 
-right_format = """
-[─╯](grey)\
-"""
 palette = 'hi'
 
 [palettes.hi]
