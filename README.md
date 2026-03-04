@@ -26,7 +26,7 @@
 
 ## Appearance
 
-- GTK Theme: [Colloid-Green-Dark-Compact](https://github.com/vinceliuice/Matcha-gtk-theme)
+- GTK Theme: [Colloid-Green-Dark-Compact](https://github.com/vinceliuice/Colloid-gtk-theme/)
 - Fonts: [Montserrat](https://github.com/JulietaUla/Montserrat)
 
 ## My Desktop
