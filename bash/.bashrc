@@ -8,9 +8,6 @@
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
-
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#252525,bg:#242423,spinner:#97bb98,hl:#97bb98 \
 --color=fg:#DDDAD3,header:#9fbdde,info:#989772,pointer:#feffff \
