@@ -8,6 +8,8 @@
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+[[ $- == *i* ]] && source /usr/share/blesh/ble.sh
+
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#252525,bg:#242423,spinner:#97bb98,hl:#97bb98 \
 --color=fg:#DDDAD3,header:#9fbdde,info:#989772,pointer:#feffff \
