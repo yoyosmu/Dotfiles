@@ -23,19 +23,19 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.active {
     border-top: 2px solid #ffffff;
     color: #ffffff;
-    background: transparent;
+    background: rgba(225, 225, 225, 0.05);
     min-width: 45px;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-  background: transparent;
+  background: rgba(225, 225, 225, 0.05);
   border-top: 2px solid #ffffff;
   color: #ffffff;
   min-width: 45px;
@@ -86,7 +86,7 @@ button:hover {
 
 #custom-weather {
   padding-left: 4px;
-  padding-left: 8px;
+  padding-right: 4px;
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -100,12 +100,13 @@ button:hover {
 
 #custom-notification {
   padding-left: 2px;
-  font-size:14px;
+  font-size: 14px;
 }
 
 #custom-calender {
-  font-size:13px;
+  font-size: 13px;
   padding-left: 2px;
+  padding-bottom: 1px;
 }
 
 #custom-reboot,

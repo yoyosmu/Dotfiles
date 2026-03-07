@@ -20,7 +20,7 @@
   "wlr/taskbar": {
       "format": "{icon} {title:.18}",
       "icon-size": 16,
-      "on-click-middle": "close",
+      "on-click-right": "close",
       "tooltip-format": "{title}",
       "ignore-list": [],
       "tooltip": false,

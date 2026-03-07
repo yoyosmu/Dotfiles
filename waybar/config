@@ -86,7 +86,7 @@
     "backlight": {
         "scroll-step": 5,
         "format": "{icon} {percent}%",
-        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
         "format-alt": "{icon}",
         "tooltip": false
     },
@@ -98,17 +98,17 @@
         },
         "format": "{icon} {capacity}%",
         "format-alt": "{icon}",
-        "format-charging": "  {capacity}%",
+        "format-charging": "  {capacity}% ",
         "format-icons": ["  ", "  ", "  ", "  ", "  "],
         "tooltip": false
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) {icon}",
         "format-ethernet": "  {ifname}",
-        "format-icons": [" ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤯 "],
+        "format-icons": [" ", "󰤨 ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤫 "],
         "tooltip-format": "  {ifname} via {gwaddr}",
         "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "Disconnected 󰖪 {ifname}",
+        "format-disconnected": "Disconnected 󰤮  {ifname}",
         "format-alt": "  {ifname}: {ipaddr}/{cidr}"
     },
 
@@ -117,7 +117,7 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": " {icon} {volume}%",
         "format-bluetooth-muted": "  ",
-        "format-muted": " {volume}%",
+        "format-muted": "  {volume}%",
         "format-icons": {
             "headphone": "  ",
             "headset":  "󰋎 ",

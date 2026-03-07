@@ -66,6 +66,7 @@ button:hover {
   border-top: transparent;
   border-bottom: 2px solid white;
   border-radius: 0;
+  background: rgba(225, 225, 225, 0.05);
 }
 
 #taskbar button:hover {
