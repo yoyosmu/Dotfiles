@@ -103,12 +103,6 @@ button:hover {
   font-size: 14px;
 }
 
-#custom-calender {
-  font-size: 13px;
-  padding-left: 2px;
-  padding-bottom: 1px;
-}
-
 #custom-reboot,
 #custom-poweroff {
   padding: 2px;

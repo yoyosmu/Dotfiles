@@ -7,7 +7,7 @@
     "gtk-layer-shell": true,
     //"spacing": 4,
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/calender", "custom/weather", "clock", "group/group-power"],
+    "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/weather", "clock", "group/group-power"],
     "modules-center": [],
     "tray": {
         "spacing": 10
@@ -34,12 +34,6 @@
         "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
         "interval": 1800,
         "return-type": "json"
-    },
-
-    "custom/calender": {
-       "format": "  ",
-       "on-click": "eww open --toggle date",
-       "tooltip": false
     },
 
     "group/group-power": {
