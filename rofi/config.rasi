@@ -7,7 +7,7 @@ configuration {
     	drun-display-format: "{name} [<span weight='light' size='small'>({generic})</span>]";
 	eh: 1;
         opacity: 0.9;
-	display-drun: "";
+	display-drun: " ";
     timeout {
         action: "kb-cancel";
         delay:  0;

@@ -1,11 +1,11 @@
 * {
     font: "Montserrat Medium 14";
 
-    bg0:    rgba(222, 222, 222, 0.9);
-    bg1:    rgba(245, 245, 247, 0.9);
-    fg0:    rgba(122, 211, 122, 0.9);
+    bg0:    rgba(101, 135, 101, 0.5);
+    bg1:    rgba(101, 135, 101, 0.5);
+    fg0:    rgba(255, 255, 255, 0.8);
 
-    accent-color:     rgba(41, 191, 63, 0.3);
+    accent-color:     rgba(41, 191, 63, 0.9);
     urgent-color:     #EBCB8B;
 
     background-color:   transparent;
@@ -28,6 +28,7 @@ inputbar {
     spacing:    8px;
     padding:    8px;
     border-radius: 5px;
+    border: 5px;
     background-color:   @bg1;
 }
 
@@ -36,7 +37,7 @@ prompt, entry, element-icon, element-text {
 }
 
 prompt {
-    text-color: @accent-color;
+    text-color: @fg0;
 }
 
 textbox {
@@ -48,7 +49,6 @@ listview {
     padding:    5px 0;
     lines:      8;
     columns:    1;
-
     fixed-height:   false;
 }
 
@@ -74,11 +74,11 @@ element alternate active {
 }
 
 element selected {
-    text-color: @bg0;
+    text-color: rgba(101, 135, 101, 1);
 }
 
 element selected normal, element selected active {
-    background-color:   rgba(41, 191, 63, 0.2);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 element selected urgent {
