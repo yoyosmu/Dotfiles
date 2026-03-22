@@ -6,7 +6,7 @@
   "gtk-layer-shell": true,
   "modules-center": [],
   "modules-left": ["custom/search", "custom/launcher", "custom/launcher2", "custom/launcher3", "wlr/taskbar", "keyboard/state"],
-  "modules-right": ["group/system", "keyboard-state"],
+  "modules-right": ["group/system", "idle_inhibitor", "keyboard-state"],
   
   "keyboard-state": {
     "capslock": true,
@@ -26,6 +26,15 @@
       "tooltip": false,
       "on-click": "activate"
    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰒳 ",
+            "deactivated": "󰒲 "
+        },
+        "tooltip": false
+    },
 
     "group/system": {
         "orientation": "inherit",

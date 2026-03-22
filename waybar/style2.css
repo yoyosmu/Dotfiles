@@ -33,6 +33,11 @@ button:hover {
 #keyboard-state label.unlocked {
 }
 
+#idle_inhibitor {
+  color: #ffffff;
+  padding-right: 6px;
+}
+
 #custom-launcher,
 #custom-launcher2,
 #custom-launcher3 {
@@ -45,9 +50,11 @@ button:hover {
 
 #cpu,
 #disk,
-#memory,
-#custom-draweropener {
+#memory {
     padding: 4px;
+}
+
+#custom-draweropener {
 }
 
 #taskbar {
