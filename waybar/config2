@@ -4,7 +4,7 @@
   "layer": "top",
   "height": 24,
   "gtk-layer-shell": true,
-  "modules-center": ["mpris"],
+  "modules-center": [],
   "modules-left": ["custom/search", "custom/launcher", "custom/launcher2", "custom/launcher3", "wlr/taskbar", "keyboard/state"],
   "modules-right": ["group/system", "keyboard-state"],
   
@@ -75,15 +75,6 @@
        "tooltip": true,
        "tooltip-format": "RAM - {used:0.1f}GiB used"
    },
-
-  "mpris": {
-      "format": "{title} — {artist}",
-      "format-paused": "{title} — {artist}",
-      "format-stopped": "",
-      "title-len": 10,
-      "artist-len": 5,
-      "ellipsis": ".."
-  },
 
   "custom/launcher": {
     "on-click": "org.vinegarhq.Sober",
