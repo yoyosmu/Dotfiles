@@ -4,7 +4,7 @@
   "layer": "top",
   "height": 24,
   "gtk-layer-shell": true,
-  "modules-center": [],
+  "modules-center": ["custom/cava"],
   "modules-left": ["custom/search", "custom/launcher", "custom/launcher2", "custom/launcher3", "wlr/taskbar", "keyboard/state"],
   "modules-right": ["group/system", "idle_inhibitor", "keyboard-state"],
   
@@ -15,6 +15,12 @@
       "locked": "",
       "unlocked": ""
     }
+  },
+
+  "custom/cava": {
+      "exec": "~/.config/waybar/scripts/cava.sh",
+      "format": "{}",
+      "tooltip": false
   },
 
   "wlr/taskbar": {

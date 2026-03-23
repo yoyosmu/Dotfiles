@@ -1,0 +1,10 @@
+[general]
+mode = waves
+framerate = 60
+bars = 8
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 8
