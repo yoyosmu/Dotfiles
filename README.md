@@ -6,7 +6,7 @@
 
 ## Overview
 
-[](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
+[Hyprland](https://github.com/vaxerski/Hyprland) is a dynamic tiling Wayland compositor based on wlroots.
 
 - **Operating System**: `Arch Linux`
 - **Window Manager**: `Hyprland`
