@@ -3,12 +3,10 @@
 #
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+[[ $- != *i* ]] && return 
 
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-
-[[ $- == *i* ]] && source /usr/share/blesh/ble.sh
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#252525,bg:#242423,spinner:#97bb98,hl:#97bb98 \
@@ -34,3 +32,7 @@ alias g='cd ~/dotfiles && git add . && git commit -m "Cool Stuff" && git pull or
 alias i='sudo pacman -S'
 alias I='yay -S'
 alias ls='lsd'
+
+export PATH=$PATH:/home/yoyomu/.spicetify
+export PATH=$PATH:~/.spicetify
+EDITOR=micro
