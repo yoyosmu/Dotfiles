@@ -119,8 +119,5 @@
     },
     "format-alt": "{icon}",
    "tooltip": false
-   },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-    }
+   }
 }

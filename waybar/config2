@@ -65,7 +65,7 @@
 
    "custom/draweropener": {
        "tooltip": false,
-       "format": "   "
+       "format": "  "
    },
 
    "cpu": {

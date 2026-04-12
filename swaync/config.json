@@ -84,8 +84,8 @@
                     "update-command": "sh -c '[[ $(hyprshade current) == \"greyscale\" ]] && echo true || echo false'"
                 },
                 {
-                    "label": "",
-                    "command": "hyprlock"
+                    "label": "󰕪",
+                    "command": "wlogout"
                 }
             ]
         }

@@ -21,7 +21,7 @@ button:hover {
 }
 
 #custom-cava {
-    font-size: 12px;
+    font-size: 9px;
     color: #ffffff;
     letter-spacing: 2px;
 }
@@ -58,11 +58,9 @@ button:hover {
 
 #cpu,
 #disk,
-#memory {
-    padding: 4px;
-}
-
+#memory,
 #custom-draweropener {
+    padding: 4px;
 }
 
 #taskbar {
