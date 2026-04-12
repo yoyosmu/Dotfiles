@@ -1,7 +1,7 @@
 [general]
 mode = waves
 framerate = 60
-bars = 8
+bars = 12
 
 [output]
 method = raw
