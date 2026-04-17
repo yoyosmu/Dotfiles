@@ -25,7 +25,7 @@ export PATH="$PATH:/home/yoyomu/.local/bin"
 
 alias fastfetch='anifetch example.mp4 -ff'
 alias u='sudo pacman -Syu'
-alias U='yay -Syu & flatpak update'
+alias U='yay -Syu'
 alias c='sudo pacman -Rns $(pacman -Qdtq) && yay -Ycc'
 alias C='sudo rm -rf ~/.cache/* /var/cache/pacman/pkg/* /home/yoyomu/.cache/yay/*'
 alias g='cd ~/dotfiles && git add . && git commit -m "Cool Stuff" && git pull origin main --rebase && git push origin main'
