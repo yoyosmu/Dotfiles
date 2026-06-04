@@ -23,7 +23,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    min-width: 25px;
+    min-width: 22px;
     margin: 4px 3px;
     padding: 0;   
     border-radius: 999px;    
