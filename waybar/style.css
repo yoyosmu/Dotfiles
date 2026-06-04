@@ -144,7 +144,7 @@ button:hover {
 #battery.warning:not(.charging) {
   background: transparent;
   color: #ffffff;
-  animation-name: blink;
+  animation-name: blink-low;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -154,7 +154,7 @@ button:hover {
 #battery.critical:not(.charging) {
   background: transparent;
   color: #c5c8c6;
-  animation-name: blink;
+  animation-name: blink-full;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
