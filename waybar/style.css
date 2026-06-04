@@ -23,28 +23,31 @@ window#waybar.hidden {
 }
 
 #workspaces button {
+    min-width: 25px;
+    margin: 4px 3px;
+    padding: 0;   
+    border-radius: 999px;    
+    background: rgba(255, 255, 255, 0.15);
+    color: transparent;
     transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.active {
-    border-top: 2px solid #ffffff;
-    color: #ffffff;
-    background: rgba(225, 225, 225, 0.05);
+    background: rgba(225, 225, 225, 1);
+    color: transparent;
     min-width: 45px;
     transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-  background: rgba(225, 225, 225, 0.05);
-  border-top: 2px solid #ffffff;
-  color: #ffffff;
-  min-width: 45px;
+    background: rgba(225, 225, 225, 1);
+    color: transparent;
+    min-width: 45px;
 }
 
 button {
   box-shadow: inset 0 -3px transparent;
   color: rgba(225, 225, 225, 0.3);
-  border-top: 2px solid rgba(225, 225, 225, 0.3);
   border-bottom: none;
   border-left: none;
   border-right: none;
@@ -53,13 +56,13 @@ button {
 
 button:hover {
   background: inherit;
-  border-top: 2px solid #ffffff;
 }
 
 #tray > * {
   border-top: 2px solid #ffffff; 
 }
 
+#custom-weather,
 #clock,
 #battery,
 #cpu,
@@ -70,8 +73,7 @@ button:hover {
 #tray,
 #mpd {
   background: transparent;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 0 4px;
   color: #ffffff;
 }
 
