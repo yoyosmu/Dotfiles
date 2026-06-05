@@ -26,7 +26,7 @@ window#waybar.hidden {
     min-width: 22px;
     margin: 5px 3px;
     padding: 0;   
-    border-radius: 999px;    
+    border-radius: 5px;    
     background: rgba(255, 255, 255, 0.15);
     color: transparent;
     transition: all 0.25s ease-in-out;
@@ -46,7 +46,7 @@ window#waybar.hidden {
 }
 
 button {
-  box-shadow: inset 0 -3px transparent;
+    box-shadow: inset 0 -3px transparent;
     color: rgba(225, 225, 225, 0.3);
     border-bottom: none;
     border-left: none;
