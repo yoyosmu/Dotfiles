@@ -1,7 +1,6 @@
 * {
 	font-family: "Montserrat", sans-serif;
 	font-size: 12px;
-    min-height: 0;
 }
 
 window#waybar {
@@ -24,6 +23,7 @@ window#waybar.hidden {
 
 #workspaces button {
     min-width: 22px;
+    min-height: 0;
     margin: 5px 3px;
     padding: 0;   
     border-radius: 5px;    

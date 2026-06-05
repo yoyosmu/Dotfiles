@@ -2,6 +2,7 @@
   "output": "eDP-1",
   "position": "bottom",
   "layer": "top",
+  "exclusive": false
   "height": 24,
   "gtk-layer-shell": true,
   "modules-center": ["custom/cava"],
