@@ -1,123 +1,213 @@
-{
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "output": "eDP-1",
-    "layer": "top",
-    "position": "top",
-    "height": 24,
-    "gtk-layer-shell": true,
-    //"spacing": 4,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/weather", "clock", "group/group-power"],
-    "modules-center": [],
-    "tray": {
-        "spacing": 10
-    },
-
-    "hyprland/workspaces": {
-        "on-scroll-up": "hyprctl dispatch workspace r+1",
-        "on-scroll-down": "hyprctl dispatch workspace r-1",
-
-     "persistent-workspaces": {
-         "*": [ 1,2,3 ]
-     }
-    },
-
-    "clock": {
-       "format": "{:%e %b󰤃%I:%M<small>%p</small>}",
-       "format-alt": "{:L%I:%M<small>%p</small>}",
-       "tooltip": false
-    },
-
-    "custom/weather": {
-        "format": "{}°c",
-        "tooltip": true,
-        "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
-        "interval": 1800,
-        "return-type": "json"
-    },
-
-    "group/group-power": {
-        "orientation": "inherit",
-             "drawer": {
+[
+    {
+        "output": "eDP-1",
+        "layer": "top",
+        "position": "top",
+        "height": 24,
+        "gtk-layer-shell": true,
+        "modules-left": ["hyprland/workspaces"],
+        "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/weather", "clock", "group/group-power"],
+        "modules-center": [],
+        "tray": {
+            "spacing": 10
+        },
+        "hyprland/workspaces": {
+            "on-scroll-up": "hyprctl dispatch workspace r+1",
+            "on-scroll-down": "hyprctl dispatch workspace r-1",
+            "persistent-workspaces": {
+                "*": [ 1,2,3 ]
+            }
+        },
+        "clock": {
+           "format": "{:%e %b󰤃%I:%M<small>%p</small>}",
+           "format-alt": "{:L%I:%M<small>%p</small>}",
+           "tooltip": false
+        },
+        "custom/weather": {
+            "format": "{}°c",
+            "tooltip": true,
+            "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
+            "interval": 1800,
+            "return-type": "json"
+        },
+        "group/group-power": {
+            "orientation": "inherit",
+            "drawer": {
                 "transition-duration": 500,
                 "children-class": "not-poweroff",
-                "transition-left-to-right": false,
-    },
-    "modules": [
-          "custom/poweroff", 
-          "custom/reboot",
-        ]
-    },
-
-    "custom/reboot": {
-       "format": " ",
-       "tooltip": false,
-       "on-click": "systemctl reboot"
-    },
-
-    "custom/poweroff": {
-       "format": " ",
-       "on-click": "systemctl poweroff",
-       "tooltip": false
-    },
-
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": " ",
-        "none": " ",
-        "dnd-notification": " ",
-        "dnd-none": " "
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "escape": true
-     },
-
-    "backlight": {
-        "scroll-step": 5,
-        "format": "{icon} {percent}%",
-        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-        "format-alt": "{icon}",
-        "tooltip": false
-    },
-
-    "battery": {
-        "states": {
-            "warning": 20,
-            "critical": 10
+                "transition-left-to-right": false
+            },
+            "modules": [
+              "custom/poweroff", 
+              "custom/reboot"
+            ]
         },
-        "format": "{icon} {capacity}%",
-        "format-alt": "{icon}",
-        "format-charging": "  {capacity}% ",
-        "format-icons": ["  ", "  ", "  ", "  ", "  "],
-        "tooltip-format": "{timeTo} left"
+        "custom/reboot": {
+           "format": " ",
+           "tooltip": false,
+           "on-click": "systemctl reboot"
+        },
+        "custom/poweroff": {
+           "format": " ",
+           "on-click": "systemctl poweroff",
+           "tooltip": false
+        },
+        "custom/notification": {
+          "tooltip": false,
+          "format": "{icon}",
+          "format-icons": {
+            "notification": " ",
+            "none": " ",
+            "dnd-notification": " ",
+            "dnd-none": " "
+          },
+          "return-type": "json",
+          "exec-if": "which swaync-client",
+          "exec": "swaync-client -swb",
+          "on-click": "swaync-client -t -sw",
+          "escape": true
+         },
+        "backlight": {
+            "scroll-step": 5,
+            "format": "{icon} {percent}%",
+            "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+            "format-alt": "{icon}",
+            "tooltip": false
+        },
+        "battery": {
+            "states": {
+                "warning": 20,
+                "critical": 10
+            },
+            "format": "{icon} {capacity}%",
+            "format-alt": "{icon}",
+            "format-charging": "  {capacity}% ",
+            "format-icons": ["  ", "  ", "  ", "  ", "  "],
+            "tooltip-format": "{timeTo} left"
+        },
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) {icon}",
+            "format-ethernet": "  {ifname}",
+            "format-icons": [" ", "󰤨 ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤫 "],
+            "tooltip-format": "  {ifname} via {gwaddr}",
+            "format-linked": "  {ifname} (No IP)",
+            "format-disconnected": "Disconnected 󰤮  {ifname}",
+            "format-alt": "  {ifname}: {ipaddr}/{cidr}"
+        },
+        "pulseaudio": {
+            "scroll-step": 5,
+            "format": "{icon} {volume}%",
+            "format-bluetooth": " {icon} {volume}%",
+            "format-bluetooth-muted": "  ",
+            "format-muted": "  {volume}%",
+            "format-icons": {
+                "headphone": "  ",
+                "headset":  "󰋎 ",
+                "default": [" ", " ", "  "]
+            },
+            "format-alt": "{icon}",
+            "tooltip": false
+        }
     },
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%) {icon}",
-        "format-ethernet": "  {ifname}",
-        "format-icons": [" ", "󰤨 ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤫 "],
-        "tooltip-format": "  {ifname} via {gwaddr}",
-        "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "Disconnected 󰤮  {ifname}",
-        "format-alt": "  {ifname}: {ipaddr}/{cidr}"
-    },
-
-    "pulseaudio": {
-        "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-bluetooth": " {icon} {volume}%",
-        "format-bluetooth-muted": "  ",
-        "format-muted": "  {volume}%",
+    {
+      "output": "eDP-1",
+      "position": "bottom",
+      "layer": "top",
+      "height": 24,
+      "gtk-layer-shell": true,
+      "modules-center": ["custom/cava"],
+      "modules-left": ["custom/search", "custom/launcher", "custom/launcher2", "custom/launcher3", "wlr/taskbar", "keyboard/state"],
+      "modules-right": ["group/system", "idle_inhibitor", "keyboard-state"],
+      "keyboard-state": {
+        "capslock": true,
+        "format": "{icon}",
         "format-icons": {
-            "headphone": "  ",
-            "headset":  "󰋎 ",
-            "default": [" ", " ", "  "],
-    },
-    "format-alt": "{icon}",
-   "tooltip": false
-   }
-}
+          "locked": "",
+          "unlocked": ""
+        }
+      },
+      "custom/cava": {
+          "exec": "~/.config/waybar/scripts/cava.sh",
+          "format": "{}",
+          "tooltip": false
+      },
+      "wlr/taskbar": {
+          "format": "{icon} {title:.18}",
+          "icon-size": 16,
+          "on-click-right": "close",
+          "tooltip-format": "{title}",
+          "ignore-list": [],
+          "tooltip": false,
+          "on-click": "activate"
+       },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "󰒳 ",
+                "deactivated": "󰒲 "
+            },
+            "tooltip": false
+        },
+        "group/system": {
+            "orientation": "inherit",
+            "click-to-reveal": true,
+                 "drawer": {
+                    "transition-duration": 500,
+                    "transition-left-to-right": false
+        },
+        "modules": [
+              "custom/draweropener",
+              "cpu",
+              "memory", 
+              "disk"
+            ]
+        },
+        "custom/search": {
+           "format": " ",
+           "on-click": "rofi -show drun",
+           "tooltip": false
+        },
+       "custom/draweropener": {
+           "tooltip": false,
+           "format": "  "
+       },
+       "cpu": {
+           "interval": 5,
+           "format": "  {usage}%",
+           "max-length": 10
+       },
+       "disk": {
+           "interval": 30,
+           "format": "󰋊 {percentage_used}%",
+           "path": "/",
+           "tooltip": true,
+           "unit": "GB",
+           "tooltip-format":  "Available {free} of {total}"
+       },
+       "memory": {
+           "interval": 10,
+           "format": "   {percentage}%",
+           "max-length": 10,
+           "tooltip": true,
+           "tooltip-format": "RAM - {used:0.1f}GiB used"
+       },
+      "custom/launcher": {
+        "on-click": "org.vinegarhq.Sober",
+        "format": " ",
+        "tooltip": false,
+        "return-type": "json"
+      },
+      "custom/launcher2": {
+        "on-click": "brave",
+        "format": " ",
+        "tooltip": false,
+        "return-type": "json"
+      },
+      "custom/launcher3": {
+        "on-click": "vesktop",
+        "format": " ",
+        "tooltip": false,
+        "return-type": "json"
+      }
+    }
+]
