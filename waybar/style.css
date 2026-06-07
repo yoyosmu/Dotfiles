@@ -155,6 +155,7 @@ label:focus {
 }
 window#waybar.bottom {
   border-top: 2px solid rgba(225, 225, 225, 0.3);
+  border-bottom: none;
   background: rgba(90, 141, 80, .40);  
   color: #ffffff;
   transition-duration: .5s;
