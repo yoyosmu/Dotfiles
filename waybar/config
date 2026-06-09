@@ -81,8 +81,9 @@
             },
             "format": "{icon} {capacity}%",
             "format-alt": "{icon}",
-            "format-charging": "  {capacity}% ",
-            "format-icons": ["  ", "  ", "  ", "  ", "  "],
+            "format-charging": "{icon} {capacity}%",
+            "format-charging-icons": ["󰢟 ","󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
+            "format-icons": ["󰂎 ", "󰁺 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
             "tooltip-format": "{timeTo} left"
         },
         "network": {
