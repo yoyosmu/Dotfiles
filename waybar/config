@@ -21,6 +21,7 @@
         "clock": {
            "format": "{:%e %b󰤃%I:%M<small>%p</small>}",
            "format-alt": "{:L%I:%M<small>%p</small>}",
+           "on-click-right": "~/.config/ignis/calendar/toggle.sh",
            "tooltip": false
         },
         "custom/weather": {
@@ -93,7 +94,7 @@
             "tooltip-format": "  {ifname} via {gwaddr}",
             "format-linked": "  {ifname} (No IP)",
             "format-disconnected": "Disconnected 󰤮  {ifname}",
-            "format-alt": "  {ifname}: {ipaddr}/{cidr}"
+            "on-click": "~/.config/ignis/wifi-island/toggle.sh"
         },
         "pulseaudio": {
             "scroll-step": 5,
