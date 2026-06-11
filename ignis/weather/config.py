@@ -56,13 +56,13 @@ def fetch_days():
 
 def temp_color(temp):
     if temp <= 0:
-        return (0.1, 0.4, 1.0, 1.0)       # vivid blue
+        return (0.1, 0.4, 1.0, 1.0)      
     elif temp <= 15:
-        return (0.2, 0.8, 1.0, 1.0)       # cyan
+        return (0.2, 0.8, 1.0, 1.0)       
     elif temp <= 28:
-        return (1.0, 0.5, 0.2, 1.0)       # orange
+        return (1.0, 0.5, 0.2, 1.0)       
     else:
-        return (1.0, 0.15, 0.15, 1.0)     # vivid red
+        return (1.0, 0.15, 0.15, 1.0)    
 
 
 def make_hbar(temp, bar_width=60, height=5):
@@ -174,7 +174,7 @@ def main():
         namespace="wx-island",
         anchor=["top", "right"],
         margin_top=2,
-        margin_right=5,
+        margin_right=25,
         layer="overlay",
         kb_mode="none",
         css_classes=["wx-window"],
