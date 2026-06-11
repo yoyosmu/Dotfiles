@@ -56,36 +56,39 @@ def fetch_days():
 
 def temp_color(temp):
     if temp <= 0:
-        return (30/255, 64/255, 175/255, 0.9)   
+        return (0.1, 0.4, 1.0, 1.0)       # vivid blue
     elif temp <= 15:
-        return (96/255, 165/255, 250/255, 0.9)  
+        return (0.2, 0.8, 1.0, 1.0)       # cyan
     elif temp <= 28:
-        return (252/255, 129/255, 129/255, 0.9)  
+        return (1.0, 0.5, 0.2, 1.0)       # orange
     else:
-        return (185/255, 28/255, 28/255, 0.9)   
+        return (1.0, 0.15, 0.15, 1.0)     # vivid red
 
 
-def make_hbar(temp, bar_width=90, height=2):
+def make_hbar(temp, bar_width=90, height=5):
     fill = max(0.0, min(1.0, (temp - GLOBAL_MIN) / (GLOBAL_MAX - GLOBAL_MIN)))
-    color = temp_color(temp)
+    r, g, b, a = temp_color(temp)
 
     da = Gtk.DrawingArea()
     da.set_size_request(bar_width, height)
+    da.set_valign(Gtk.Align.CENTER)
 
     def draw(widget, cr, w, h):
-        radius = h / 2
+        import math
+        rad = h / 2
 
-        cr.set_source_rgba(1, 1, 1, 0.1)
-        cr.arc(radius, radius, radius, 0.5 * 3.14159, 1.5 * 3.14159)
-        cr.arc(w - radius, radius, radius, -0.5 * 3.14159, 0.5 * 3.14159)
-        cr.close_path()
+        def pill(width):
+            cr.new_path()
+            cr.arc(rad, rad, rad, math.pi / 2, 3 * math.pi / 2)
+            cr.arc(max(width - rad, rad + 0.01), rad, rad, -math.pi / 2, math.pi / 2)
+            cr.close_path()
+
+        cr.set_source_rgba(1, 1, 1, 0.12)
+        pill(w)
         cr.fill()
 
-        filled_w = max(h, int(w * fill))
-        cr.set_source_rgba(*color)
-        cr.arc(radius, radius, radius, 0.5 * 3.14159, 1.5 * 3.14159)
-        cr.arc(filled_w - radius, radius, radius, -0.5 * 3.14159, 0.5 * 3.14159)
-        cr.close_path()
+        cr.set_source_rgba(r, g, b, a)
+        pill(max(h, w * fill))
         cr.fill()
 
     da.set_draw_func(draw)
@@ -160,8 +163,8 @@ def main():
         halign="center",
         spacing=6,
         child=[
-            Widget.Button(css_classes=["wx-nav"], child=Widget.Label(label=""), on_click=lambda *_: go(-1)),
-            Widget.Button(css_classes=["wx-nav"], child=Widget.Label(label=""), on_click=lambda *_: go(1)),
+            Widget.Button(css_classes=["wx-nav"], child=Widget.Label(label="←"), on_click=lambda *_: go(-1)),
+            Widget.Button(css_classes=["wx-nav"], child=Widget.Label(label="→"), on_click=lambda *_: go(1)),
         ],
     )
 

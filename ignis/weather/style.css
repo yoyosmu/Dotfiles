@@ -10,8 +10,7 @@
 
 .wx-island {
     background: rgba(90, 141, 80, 0.45);
-    border-radius: 8px;
-     margin-top: 2px;
+    border-radius: 22px;
     padding: 14px;
     min-width: 280px;
     border: 1px solid rgba(244, 244, 244, 0.35);
@@ -66,4 +65,15 @@
 .wx-condition {
     font-size: 10px;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.pill-track {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.pill-fill {
+    border-radius: 999px;
+    min-height: 6px;
 }
