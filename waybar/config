@@ -28,6 +28,7 @@
             "format": "{}°c",
             "tooltip": true,
             "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
+            "on-click": "~/.config/ignis/weather/toggle.sh",
             "interval": 1800,
             "return-type": "json"
         },
