@@ -65,7 +65,7 @@ def temp_color(temp):
         return (1.0, 0.15, 0.15, 1.0)     # vivid red
 
 
-def make_hbar(temp, bar_width=90, height=5):
+def make_hbar(temp, bar_width=60, height=5):
     fill = max(0.0, min(1.0, (temp - GLOBAL_MIN) / (GLOBAL_MAX - GLOBAL_MIN)))
     r, g, b, a = temp_color(temp)
 
@@ -120,7 +120,7 @@ def hour_row(slot):
                 halign="start",
                 hexpand=True,
                 ellipsize="end",
-                max_width_chars=22,
+                max_width_chars=14,
             ),
         ],
     )
