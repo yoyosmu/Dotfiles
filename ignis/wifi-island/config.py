@@ -21,7 +21,11 @@ def get_networks():
                 if ap and ap.get_ssid():
                     active_ssids.add(ap.get_ssid().get_data().decode(errors="replace"))
 
-    saved = {c.get_id() for c in _nm_client.get_connections()}
+    saved = set()
+    for c in _nm_client.get_connections():
+        s_wifi = c.get_setting_wireless()
+        if s_wifi and s_wifi.get_ssid():
+            saved.add(s_wifi.get_ssid().get_data().decode(errors="replace"))
 
     for dev in _nm_client.get_devices():
         if dev.get_device_type() != NM.DeviceType.WIFI:
@@ -54,20 +58,12 @@ def signal_icon(s):
 
 
 def connect(ssid):
-    for conn in _nm_client.get_connections():
-        if conn.get_id() == ssid:
-            _nm_client.activate_connection_async(conn, None, None, None, None, None)
-            return
-    for dev in _nm_client.get_devices():
-        if dev.get_device_type() != NM.DeviceType.WIFI:
-            continue
-        for ap in dev.get_access_points():
-            raw = ap.get_ssid()
-            if raw and raw.get_data().decode(errors="replace") == ssid:
-                _nm_client.add_and_activate_connection_async(
-                    NM.SimpleConnection.new(), dev, ap.get_path(), None, None, None
-                )
-                return
+    import subprocess
+    subprocess.Popen(
+        ["nmcli", "device", "wifi", "connect", ssid],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
 
 def on_click(ssid):
