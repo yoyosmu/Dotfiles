@@ -3,6 +3,7 @@ gi.require_version('NM', '1.0')
 from gi.repository import NM, GLib
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
+import subprocess
 import time
 
 DOUBLE_CLICK_MS = 400
@@ -58,7 +59,6 @@ def signal_icon(s):
 
 
 def connect(ssid):
-    import subprocess
     subprocess.Popen(
         ["nmcli", "device", "wifi", "connect", ssid],
         stdout=subprocess.DEVNULL,
@@ -66,7 +66,7 @@ def connect(ssid):
     )
 
 
-def on_click(ssid):
+def on_click(ssid, refresh_fn):
     now = time.monotonic() * 1000
     last = _last_click.get(ssid, 0)
     if now - last < DOUBLE_CLICK_MS:
@@ -76,31 +76,83 @@ def on_click(ssid):
         _last_click[ssid] = now
 
 
-def wifi_row(net):
-    classes = ["wifi-row"] + (["wifi-row--active"] if net["active"] else [])
-    return Widget.Button(
-        css_classes=classes,
-        child=Widget.Box(spacing=8, child=[
-            Widget.Label(label=signal_icon(net["signal"]), css_classes=["wifi-icon"]),
-            Widget.Label(label=net["ssid"], css_classes=["wifi-ssid"],
-                         ellipsize="end", max_width_chars=18, hexpand=True, halign="start"),
-            Widget.Label(label="●" if net["active"] else "", css_classes=["wifi-active-dot"]),
-        ]),
-        on_click=lambda *_: on_click(net["ssid"]),
+def make_rows(networks, refresh_fn):
+    rows = []
+    state_refs = []
 
-    )
+    for net in networks:
+        icon_lbl = Widget.Label(label=signal_icon(net["signal"]), css_classes=["wifi-icon"])
+        ssid_lbl = Widget.Label(label=net["ssid"], css_classes=["wifi-ssid"],
+                                ellipsize="end", max_width_chars=18, hexpand=True, halign="start")
+        dot_lbl = Widget.Label(label="●" if net["active"] else "", css_classes=["wifi-active-dot"])
+
+        classes = ["wifi-row"] + (["wifi-row--active"] if net["active"] else [])
+        btn = Widget.Button(
+            css_classes=classes,
+            child=Widget.Box(spacing=8, child=[icon_lbl, ssid_lbl, dot_lbl]),
+            on_click=lambda *_, s=net["ssid"]: on_click(s, refresh_fn),
+        )
+
+        state_refs.append({
+            "ssid": net["ssid"],
+            "icon": icon_lbl,
+            "dot": dot_lbl,
+            "btn": btn,
+        })
+        rows.append(btn)
+
+    return rows, state_refs
 
 
 def main():
     app = IgnisApp.get_default()
     app.apply_css(f"{__file__.replace('config.py', 'style.css')}")
 
-    networks = get_networks()
-    rows = [wifi_row(n) for n in networks] if networks else [
-        Widget.Label(label="No networks", css_classes=["wifi-empty"])
-    ]
+    container = Widget.Box(vertical=True, spacing=2, css_classes=["wifi-island"])
+    state_refs = [None]
 
-    Widget.Window(
+    def build():
+        child = container.get_first_child()
+        while child:
+            container.remove(child)
+            child = container.get_first_child()
+
+        networks = get_networks()
+        if not networks:
+            container.append(Widget.Label(label="No networks", css_classes=["wifi-empty"]))
+            state_refs[0] = []
+            return
+
+        rows, refs = make_rows(networks, update)
+        state_refs[0] = refs
+        for row in rows:
+            container.append(row)
+
+    def update():
+        networks = get_networks()
+        refs = state_refs[0]
+
+        if not refs or len(networks) != len(refs):
+            build()
+            return False
+
+        for i, net in enumerate(networks):
+            ref = refs[i]
+            if net["ssid"] != ref["ssid"]:
+                build()
+                return False
+            ref["icon"].set_label(signal_icon(net["signal"]))
+            new_dot = "●" if net["active"] else ""
+            if ref["dot"].get_label() != new_dot:
+                ref["dot"].set_label(new_dot)
+                classes = ["wifi-row"] + (["wifi-row--active"] if net["active"] else [])
+                ref["btn"].set_css_classes(classes)
+
+        return False
+
+    build()
+
+    win = Widget.Window(
         namespace="wifi-island",
         anchor=["top", "right"],
         margin_top=2,
@@ -108,8 +160,26 @@ def main():
         layer="overlay",
         kb_mode="none",
         css_classes=["wifi-island-window"],
-        child=Widget.Box(vertical=True, spacing=2, css_classes=["wifi-island"], child=rows),
+        child=container,
     )
+
+    timer_id = [None]
+
+    def start_timer():
+        if timer_id[0] is None:
+            def tick():
+                update()
+                return True
+            timer_id[0] = GLib.timeout_add(500, tick)
+
+    def stop_timer():
+        if timer_id[0] is not None:
+            GLib.source_remove(timer_id[0])
+            timer_id[0] = None
+
+    win.connect("map", lambda *_: start_timer())
+    win.connect("unmap", lambda *_: stop_timer())
+    start_timer()
 
     app.hold()
     app.run()
