@@ -1,46 +1,33 @@
 import gi
 gi.require_version('NM', '1.0')
-from gi.repository import NM, GLib
+from gi.repository import GLib
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
+from ignis.services.network import NetworkService
 import subprocess
 import time
 
 DOUBLE_CLICK_MS = 400
 _last_click: dict[str, float] = {}
-_nm_client = NM.Client.new(None)
 
 
 def get_networks():
+    network = NetworkService.get_default()
     seen, known, unknown = set(), [], []
-    active_ssids = set()
 
-    for ac in _nm_client.get_active_connections():
-        for dev in ac.get_devices():
-            if dev.get_device_type() == NM.DeviceType.WIFI:
-                ap = dev.get_active_access_point()
-                if ap and ap.get_ssid():
-                    active_ssids.add(ap.get_ssid().get_data().decode(errors="replace"))
-
-    saved = set()
-    for c in _nm_client.get_connections():
-        s_wifi = c.get_setting_wireless()
-        if s_wifi and s_wifi.get_ssid():
-            saved.add(s_wifi.get_ssid().get_data().decode(errors="replace"))
-
-    for dev in _nm_client.get_devices():
-        if dev.get_device_type() != NM.DeviceType.WIFI:
-            continue
-        for ap in dev.get_access_points():
-            raw = ap.get_ssid()
-            if not raw:
-                continue
-            ssid = raw.get_data().decode(errors="replace")
+    for dev in network.wifi.devices:
+        for ap in dev.access_points:
+            ssid = ap.ssid
             if not ssid or ssid in seen:
                 continue
             seen.add(ssid)
-            entry = {"ssid": ssid, "signal": ap.get_strength(), "active": ssid in active_ssids}
-            if ssid in saved:
+            entry = {
+                "ssid": ssid,
+                "signal": ap.strength,
+                "active": ap.is_connected,
+                "ap": ap,
+            }
+            if ap.psk is not None or ap.is_connected:
                 known.append(entry)
             else:
                 unknown.append(entry)
@@ -58,27 +45,35 @@ def signal_icon(s):
     return "󰤫"
 
 
-def connect(ssid):
-    subprocess.Popen(
-        ["nmcli", "device", "wifi", "connect", ssid],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+def connect(ap):
+    import asyncio
+    async def _connect():
+        await ap.connect_to()
+    try:
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(_connect())
+    except Exception:
+        subprocess.Popen(
+            ["nmcli", "device", "wifi", "connect", ap.ssid],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
 
 
-def on_click(ssid, refresh_fn):
+def on_click(ssid, ap, refresh_fn):
     now = time.monotonic() * 1000
     last = _last_click.get(ssid, 0)
     if now - last < DOUBLE_CLICK_MS:
-        connect(ssid)
+        subprocess.Popen(
+            ["nmcli", "device", "wifi", "connect", ssid],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
         _last_click[ssid] = 0
     else:
         _last_click[ssid] = now
 
 
 def make_rows(networks, refresh_fn):
-    rows = []
-    state_refs = []
+    rows, state_refs = [], []
 
     for net in networks:
         icon_lbl = Widget.Label(label=signal_icon(net["signal"]), css_classes=["wifi-icon"])
@@ -90,15 +85,10 @@ def make_rows(networks, refresh_fn):
         btn = Widget.Button(
             css_classes=classes,
             child=Widget.Box(spacing=8, child=[icon_lbl, ssid_lbl, dot_lbl]),
-            on_click=lambda *_, s=net["ssid"]: on_click(s, refresh_fn),
+            on_click=lambda *_, s=net["ssid"], a=net["ap"]: on_click(s, a, refresh_fn),
         )
 
-        state_refs.append({
-            "ssid": net["ssid"],
-            "icon": icon_lbl,
-            "dot": dot_lbl,
-            "btn": btn,
-        })
+        state_refs.append({"ssid": net["ssid"], "icon": icon_lbl, "dot": dot_lbl, "btn": btn})
         rows.append(btn)
 
     return rows, state_refs
@@ -186,3 +176,6 @@ def main():
 
 
 main()
+
+
+
