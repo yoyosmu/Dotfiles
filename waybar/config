@@ -21,14 +21,14 @@
         "clock": {
            "format": "{:%e %b󰤃%I:%M<small>%p</small>}",
            "format-alt": "{:L%I:%M<small>%p</small>}",
-           "on-click-right": "~/.config/ignis/calendar/toggle.sh",
+           "on-click-right": "~/.config/ignis/mutex-toggle.sh calendar",
            "tooltip": false
         },
         "custom/weather": {
             "format": "{}°c",
             "tooltip": true,
             "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
-            "on-click": "~/.config/ignis/weather/toggle.sh",
+            "on-click": "~/.config/ignis/mutex-toggle.sh weather",
             "interval": 1800,
             "return-type": "json"
         },
@@ -95,7 +95,7 @@
             "tooltip-format": "  {ifname} via {gwaddr}",
             "format-linked": "  {ifname} (No IP)",
             "format-disconnected": "Disconnected 󰤮  {ifname}",
-            "on-click": "~/.config/ignis/wifi-island/toggle.sh"
+            "on-click": "/home/yoyomu/.config/ignis/mutex-toggle.sh wifi"
         },
         "pulseaudio": {
             "scroll-step": 5,
