@@ -23,7 +23,7 @@ def flash_label(lbl, text, duration=1200):
     GLib.timeout_add(duration, lambda: (lbl.set_label(""), lbl.set_visible(False)) or False)
 
 
-def shot_monitor(status_lbl):
+def shot_monitor(status_lbl, app):
     try:
         raw = subprocess.check_output(["hyprctl", "monitors", "-j"])
         monitors = json.loads(raw)
@@ -45,11 +45,11 @@ def shot_monitor(status_lbl):
         flash_label(status_lbl, "✗ cancelled")
         return
     out = os.path.join(SAVE_DIR, f"monitor_{timestamp()}.png")
-    r = subprocess.run(["grim", "-o", name, out] if name else ["grim", "-g", selected, out])
-    flash_label(status_lbl, "✓ monitor" if r.returncode == 0 else "✗ failed")
+    subprocess.run(["grim", "-o", name, out] if name else ["grim", "-g", selected, out])
+    app.quit()
 
 
-def shot_window(status_lbl):
+def shot_window(status_lbl, app):
     try:
         raw = subprocess.check_output(["hyprctl", "clients", "-j"])
         clients = json.loads(raw)
@@ -69,19 +69,19 @@ def shot_window(status_lbl):
         flash_label(status_lbl, "✗ cancelled")
         return
     out = os.path.join(SAVE_DIR, f"window_{timestamp()}.png")
-    r = subprocess.run(["grim", "-g", geo, out])
-    flash_label(status_lbl, "✓ window" if r.returncode == 0 else "✗ failed")
+    subprocess.run(["grim", "-g", geo, out])
+    app.quit()
 
 
-def shot_region(status_lbl):
+def shot_region(status_lbl, app):
     try:
         geo = subprocess.check_output(["slurp"]).decode().strip()
     except Exception:
         flash_label(status_lbl, "✗ cancelled")
         return
     out = os.path.join(SAVE_DIR, f"region_{timestamp()}.png")
-    r = subprocess.run(["grim", "-g", geo, out])
-    flash_label(status_lbl, "✓ region" if r.returncode == 0 else "✗ failed")
+    subprocess.run(["grim", "-g", geo, out])
+    app.quit()
 
 
 def main():
@@ -103,7 +103,7 @@ def main():
                         Widget.Label(label="Window", css_classes=["ss-label"]),
                     ],
                 ),
-                on_click=lambda *_: shot_window(status_lbl),
+                on_click=lambda *_: shot_window(status_lbl, app),
             ),
             Widget.Label(label="│", css_classes=["ss-divider"]),
             Widget.Button(
@@ -115,7 +115,7 @@ def main():
                         Widget.Label(label="Monitor", css_classes=["ss-label"]),
                     ],
                 ),
-                on_click=lambda *_: shot_monitor(status_lbl),
+                on_click=lambda *_: shot_monitor(status_lbl, app),
             ),
             Widget.Label(label="│", css_classes=["ss-divider"]),
             Widget.Button(
@@ -127,7 +127,7 @@ def main():
                         Widget.Label(label="Region", css_classes=["ss-label"]),
                     ],
                 ),
-                on_click=lambda *_: shot_region(status_lbl),
+                on_click=lambda *_: shot_region(status_lbl, app),
             ),
         ],
     )
