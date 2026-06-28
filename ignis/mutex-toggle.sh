@@ -3,10 +3,8 @@ MUTEX_FILE="/tmp/ignis-mutex"
 
 resolve_dir() {
     case "$1" in
-        screenshot) echo "screenshot-island" ;;
-        recorder)   echo "recorder-island" ;;
-        wifi)       echo "wifi-island" ;;
-        *)          echo "$1" ;;
+        wifi) echo "wifi-island" ;;
+        *)    echo "$1" ;;
     esac
 }
 
