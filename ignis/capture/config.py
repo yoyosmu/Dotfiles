@@ -94,6 +94,12 @@ def pick_window():
     return geo, matched
 
 
+def slurp_to_gsr(geo):
+    xy, wh = geo.strip().split(" ")
+    x, y = xy.split(",")
+    return wh + f"+{x}+{y}"
+
+
 def pick_monitor():
     raw = subprocess.check_output(["hyprctl", "monitors", "-j"])
     monitors = json.loads(raw)
@@ -136,9 +142,9 @@ def main():
     def refresh_labels():
         kind = recording["kind"]
         is_rec = mode["current"] == "recorder"
-        win_lbl.set_label("■ Stop" if kind == "window" else "Window")
-        mon_lbl.set_label("■ Stop" if kind == "monitor" else "Monitor")
-        reg_lbl.set_label("■ Stop" if kind == "region" else "Region")
+        win_lbl.set_label("■ Stop" if is_rec and kind == "window" else "Window")
+        mon_lbl.set_label("■ Stop" if is_rec and kind == "monitor" else "Monitor")
+        reg_lbl.set_label("■ Stop" if is_rec and kind == "region" else "Region")
         mode_lbl.set_label("Recorder" if is_rec else "Screenshot")
 
     refresh_labels()
@@ -182,7 +188,8 @@ def main():
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                 )
             out = os.path.join(VIDEO_DIR, f"window_{timestamp()}.mp4")
-            subprocess.Popen([GSR, "-w", "focused", "-f", "60", "-a", "default_output", "-o", out],
+            subprocess.Popen([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
+                              "-f", "60", "-a", "default_output", "-o", out],
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             save_rec_state("window")
             recording["kind"] = "window"
@@ -245,7 +252,8 @@ def main():
                 flash_label(status_lbl, "✗ cancelled")
                 return
             out = os.path.join(VIDEO_DIR, f"region_{timestamp()}.mp4")
-            subprocess.Popen([GSR, "-w", geo, "-f", "60", "-a", "default_output", "-o", out],
+            subprocess.Popen([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
+                              "-f", "60", "-a", "default_output", "-o", out],
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             save_rec_state("region")
             recording["kind"] = "region"
