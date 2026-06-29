@@ -1,5 +1,6 @@
 import gi
 gi.require_version('NM', '1.0')
+gi.require_version('Gtk', '4.0')
 from gi.repository import GLib
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
@@ -7,8 +8,8 @@ from ignis.services.network import NetworkService
 import subprocess
 import time
 
+
 DOUBLE_CLICK_MS = 400
-_last_click: dict[str, float] = {}
 
 
 def get_networks():
@@ -45,47 +46,36 @@ def signal_icon(s):
     return "󰤫"
 
 
-def connect(ap):
-    import asyncio
-    async def _connect():
-        await ap.connect_to()
-    try:
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(_connect())
-    except Exception:
-        subprocess.Popen(
-            ["nmcli", "device", "wifi", "connect", ap.ssid],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-        )
-
-
-def on_click(ssid, ap, refresh_fn):
-    now = time.monotonic() * 1000
-    last = _last_click.get(ssid, 0)
-    if now - last < DOUBLE_CLICK_MS:
-        subprocess.Popen(
-            ["nmcli", "device", "wifi", "connect", ssid],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-        )
-        _last_click[ssid] = 0
-    else:
-        _last_click[ssid] = now
-
-
-def make_rows(networks, refresh_fn):
+def make_rows(networks, on_click_fn):
     rows, state_refs = [], []
 
     for net in networks:
+        last_click = [0.0]
+
         icon_lbl = Widget.Label(label=signal_icon(net["signal"]), css_classes=["wifi-icon"])
         ssid_lbl = Widget.Label(label=net["ssid"], css_classes=["wifi-ssid"],
                                 ellipsize="end", max_width_chars=18, hexpand=True, halign="start")
         dot_lbl = Widget.Label(label="●" if net["active"] else "", css_classes=["wifi-active-dot"])
 
         classes = ["wifi-row"] + (["wifi-row--active"] if net["active"] else [])
+
+        def make_click(ssid, lc):
+            def handler(*_):
+                now = time.monotonic() * 1000
+                if now - lc[0] < DOUBLE_CLICK_MS:
+                    subprocess.Popen(
+                        ["nmcli", "device", "wifi", "connect", ssid],
+                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                    )
+                    lc[0] = 0
+                else:
+                    lc[0] = now
+            return handler
+
         btn = Widget.Button(
             css_classes=classes,
             child=Widget.Box(spacing=8, child=[icon_lbl, ssid_lbl, dot_lbl]),
-            on_click=lambda *_, s=net["ssid"], a=net["ap"]: on_click(s, a, refresh_fn),
+            on_click=make_click(net["ssid"], last_click),
         )
 
         state_refs.append({"ssid": net["ssid"], "icon": icon_lbl, "dot": dot_lbl, "btn": btn})
@@ -113,24 +103,24 @@ def main():
             state_refs[0] = []
             return
 
-        rows, refs = make_rows(networks, update)
+        rows, refs = make_rows(networks, None)
         state_refs[0] = refs
         for row in rows:
             container.append(row)
 
-    def update():
+    def update(*_):
         networks = get_networks()
         refs = state_refs[0]
 
         if not refs or len(networks) != len(refs):
             build()
-            return False
+            return
 
         for i, net in enumerate(networks):
             ref = refs[i]
             if net["ssid"] != ref["ssid"]:
                 build()
-                return False
+                return
             ref["icon"].set_label(signal_icon(net["signal"]))
             new_dot = "●" if net["active"] else ""
             if ref["dot"].get_label() != new_dot:
@@ -138,11 +128,18 @@ def main():
                 classes = ["wifi-row"] + (["wifi-row--active"] if net["active"] else [])
                 ref["btn"].set_css_classes(classes)
 
-        return False
-
     build()
 
-    win = Widget.Window(
+    network = NetworkService.get_default()
+    for dev in network.wifi.devices:
+        dev.connect("notify::access-points", update)
+        for ap in dev.access_points:
+            ap.connect("notify::strength", update)
+            ap.connect("notify::is-connected", update)
+
+    network.wifi.connect("notify::devices", lambda *_: build())
+
+    Widget.Window(
         namespace="wifi-island",
         anchor=["top", "right"],
         margin_top=2,
@@ -153,29 +150,8 @@ def main():
         child=container,
     )
 
-    timer_id = [None]
-
-    def start_timer():
-        if timer_id[0] is None:
-            def tick():
-                update()
-                return True
-            timer_id[0] = GLib.timeout_add(500, tick)
-
-    def stop_timer():
-        if timer_id[0] is not None:
-            GLib.source_remove(timer_id[0])
-            timer_id[0] = None
-
-    win.connect("map", lambda *_: start_timer())
-    win.connect("unmap", lambda *_: stop_timer())
-    start_timer()
-
     app.hold()
     app.run()
 
 
 main()
-
-
-
