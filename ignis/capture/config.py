@@ -8,6 +8,7 @@ import subprocess
 import datetime
 import json
 import os
+import shlex
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -25,6 +26,20 @@ def flash_label(lbl, text, duration=1200):
     lbl.set_label(text)
     lbl.set_visible(True)
     GLib.timeout_add(duration, lambda: (lbl.set_label(""), lbl.set_visible(False)) or False)
+
+
+def spawn_delayed(cmd_list, delay=3):
+    """Run cmd_list after `delay` seconds in a fully detached process
+    (new session, no ties to this app), so it still fires even if this
+    widget/app is closed or killed before the delay elapses."""
+    quoted = " ".join(shlex.quote(c) for c in cmd_list)
+    shell_cmd = f"sleep {delay} && exec {quoted}"
+    return subprocess.Popen(
+        ["bash", "-c", shell_cmd],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        stdin=subprocess.DEVNULL,
+        start_new_session=True,
+    )
 
 
 def gsr_running():
@@ -149,6 +164,25 @@ def main():
 
     refresh_labels()
 
+    def start_countdown(on_done, seconds=3):
+        # Cosmetic on-screen 3..2..1 tick. The real action is already
+        # guaranteed to fire via spawn_delayed(), independent of this UI.
+        status_lbl.set_visible(True)
+        count = {"n": seconds}
+
+        def tick():
+            if count["n"] > 0:
+                status_lbl.set_label(str(count["n"]))
+                count["n"] -= 1
+                return True
+            status_lbl.set_label("")
+            status_lbl.set_visible(False)
+            on_done()
+            return False
+
+        tick()
+        GLib.timeout_add(1000, tick)
+
     def toggle_mode(*_):
         mode["current"] = "recorder" if mode["current"] == "screenshot" else "screenshot"
         refresh_labels()
@@ -163,9 +197,10 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             out = os.path.join(SCREENSHOT_DIR, f"window_{timestamp()}.png")
-            subprocess.run(["grim", "-g", geo, out])
-            app.quit()
+            spawn_delayed(["grim", "-g", geo, out])
+            start_countdown(app.quit)
         else:
             if recording["kind"]:
                 gsr_stop()
@@ -182,19 +217,19 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             if matched and matched.get("address"):
                 subprocess.run(
                     ["hyprctl", "dispatch", "focuswindow", f"address:0x{matched['address']}"],
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                 )
             out = os.path.join(VIDEO_DIR, f"window_{timestamp()}.mp4")
-            subprocess.Popen([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
-                              "-f", "60", "-a", "default_output", "-o", out],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            spawn_delayed([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
+                           "-f", "60", "-a", "default_output", "-o", out])
             save_rec_state("window")
             recording["kind"] = "window"
             refresh_labels()
-            flash_label(status_lbl, "● recording")
+            start_countdown(lambda: flash_label(status_lbl, "● recording"))
 
     def on_monitor(*_):
         if mode["current"] == "screenshot":
@@ -203,9 +238,13 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             out = os.path.join(SCREENSHOT_DIR, f"monitor_{timestamp()}.png")
-            subprocess.run(["grim", "-o", name, out] if name else ["grim", "-g", selected, out])
-            app.quit()
+            if name:
+                spawn_delayed(["grim", "-o", name, out])
+            else:
+                spawn_delayed(["grim", "-g", selected, out])
+            start_countdown(app.quit)
         else:
             if recording["kind"]:
                 gsr_stop()
@@ -219,14 +258,14 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             out = os.path.join(VIDEO_DIR, f"monitor_{timestamp()}.mp4")
-            subprocess.Popen([GSR, "-w", name if name else "screen", "-f", "60",
-                              "-a", "default_output", "-o", out],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            spawn_delayed([GSR, "-w", name if name else "screen", "-f", "60",
+                           "-a", "default_output", "-o", out])
             save_rec_state("monitor")
             recording["kind"] = "monitor"
             refresh_labels()
-            flash_label(status_lbl, "● recording")
+            start_countdown(lambda: flash_label(status_lbl, "● recording"))
 
     def on_region(*_):
         if mode["current"] == "screenshot":
@@ -235,9 +274,10 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             out = os.path.join(SCREENSHOT_DIR, f"region_{timestamp()}.png")
-            subprocess.run(["grim", "-g", geo, out])
-            app.quit()
+            spawn_delayed(["grim", "-g", geo, out])
+            start_countdown(app.quit)
         else:
             if recording["kind"]:
                 gsr_stop()
@@ -251,14 +291,14 @@ def main():
             except Exception:
                 flash_label(status_lbl, "✗ cancelled")
                 return
+
             out = os.path.join(VIDEO_DIR, f"region_{timestamp()}.mp4")
-            subprocess.Popen([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
-                              "-f", "60", "-a", "default_output", "-o", out],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            spawn_delayed([GSR, "-w", "region", "-region", slurp_to_gsr(geo),
+                           "-f", "60", "-a", "default_output", "-o", out])
             save_rec_state("region")
             recording["kind"] = "region"
             refresh_labels()
-            flash_label(status_lbl, "● recording")
+            start_countdown(lambda: flash_label(status_lbl, "● recording"))
 
     mode_btn = Widget.Button(
         css_classes=["cap-mode-btn"],
