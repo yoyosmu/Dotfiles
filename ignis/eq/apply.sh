@@ -27,7 +27,7 @@ import os
 preset_path = sys.argv[1]
 state_path = sys.argv[2]
 gains = [float(x) for x in sys.argv[3:11]]
-Q = 1.0
+Q_LIST = [1.3, 1.1, 0.9, 0.8, 0.8, 0.9, 1.0, 1.2]
 
 with open(preset_path) as f:
     data = json.load(f)
@@ -37,7 +37,7 @@ eq = data["output"]["equalizer#0"]
 for channel in ("left", "right"):
     for i, gain in enumerate(gains):
         eq[channel][f"band{i}"]["gain"] = gain
-        eq[channel][f"band{i}"]["q"] = Q
+        eq[channel][f"band{i}"]["q"] = Q_LIST[i]
 
 with open(preset_path, "w") as f:
     json.dump(data, f, indent=4)
