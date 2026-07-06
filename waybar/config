@@ -86,7 +86,7 @@
             "format-charging": "{icon} {capacity}%",
             "format-charging-icons": ["󰢟 ","󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
             "format-icons": ["󰂎 ", "󰁺 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
-            "tooltip-format": "{timeTo} left"
+            "tooltip-format": "{timeTo}"
         },
         "network": {
             "format-wifi": "{essid} ({signalStrength}%) {icon}",
@@ -132,6 +132,7 @@
       "custom/cava": {
           "exec": "~/.config/waybar/scripts/cava.sh",
           "format": "{}",
+          "on-click": "~/.config/ignis/mutex-toggle.sh eq",
           "tooltip": false
       },
       "wlr/taskbar": {
