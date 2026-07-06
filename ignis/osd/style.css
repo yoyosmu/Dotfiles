@@ -1,0 +1,37 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    min-height: 0;
+}
+
+.osd-window {
+    background: transparent;
+}
+
+.osd-island {
+    background: rgba(90, 141, 80, 0.45);
+    border-radius: 10px;
+    padding: 10px 16px;
+    border: 1px solid rgba(244, 244, 244, 0.35);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.35);
+    min-width: 500px;
+    animation: slide-in 250ms cubic-bezier(0.05, 0.9, 0.1, 1.05) both;
+}
+
+@keyframes slide-in {
+    from { opacity: 0; margin-top: -18px; }
+    to   { opacity: 1; margin-top: 0; }
+}
+
+.osd-icon {
+    font-size: 16px;
+    color: rgba(166, 227, 161, 0.95);
+    min-width: 20px;
+}
+
+.osd-pct {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    min-width: 36px;
+}
