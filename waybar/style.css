@@ -111,12 +111,12 @@ button:hover {
 }
 @keyframes blink-charging {
     0% { border-bottom: 2px solid transparent; }
-    50% { border-bottom: 2px solid #50fa7b; }
+    50% { border-bottom: 2px solid #5a8d50; }
     100% { border-bottom: 2px solid transparent; }
 }
 @keyframes blink-full {
     0% { border-bottom: 2px solid transparent; }
-    33% { border-bottom: 2px solid #00ffff; }
+    33% { border-bottom: 2px solid #0e771d; }
     66% { border-bottom: 2px solid transparent; }
     100% { border-bottom: 2px solid transparent; }
 }

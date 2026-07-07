@@ -21,8 +21,14 @@
         "clock": {
            "format": "{:%e %b󰤃%I:%M<small>%p</small>}",
            "format-alt": "{:L%I:%M<small>%p</small>}",
-           "on-click-right": "~/.config/ignis/mutex-toggle.sh calendar",
-           "tooltip": false
+           "tooltip-format": "<tt><small>{calendar}</small></tt>",
+           		"calendar": {
+           			"format": {
+           				"months": "<span color='#ffffff'><b>{}</b></span>",
+           				"weekdays": "<span color='#5a8d50'><b>{}</b></span>",
+           				"today": "<span color='#5a8d50'><b><u>{}</u></b></span>"
+           			}
+           		}
         },
         "custom/weather": {
             "format": "{}°c",
@@ -84,7 +90,6 @@
             "format": "{icon} {capacity}%",
             "format-alt": "{icon}",
             "format-charging": "{icon} {capacity}%",
-            "format-charging-icons": ["󰢟 ","󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
             "format-icons": ["󰂎 ", "󰁺 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "],
             "tooltip-format": "{timeTo}"
         },
