@@ -1,9 +1,8 @@
 * {
     font: "Montserrat Medium 14";
-
-    bg0:    rgba(101, 135, 101, 0.25);
-    bg1:    rgba(101, 135, 101, 0.25);
-    fg0:    rgba(255, 255, 255, 0.9);
+    bg0:    rgba(101, 135, 101, 0.3);
+    bg1:    rgba(101, 135, 101, 0.3);
+    fg0:    rgba(232, 232, 232, 1);
 
     accent-color:     rgba(41, 191, 63, 0.9);
     urgent-color:     #EBCB8B;
