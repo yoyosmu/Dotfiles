@@ -6,7 +6,7 @@
         "height": 24,
         "gtk-layer-shell": true,
         "modules-left": ["hyprland/workspaces"],
-        "modules-right": ["pulseaudio", "network", "backlight", "battery", "tray", "custom/notification", "custom/weather", "clock", "group/group-power"],
+        "modules-right": ["pulseaudio", "network", "bluetooth", "backlight", "battery", "tray", "custom/notification", "custom/weather", "clock", "group/group-power"],
         "modules-center": [],
         "tray": {
             "spacing": 10
@@ -33,7 +33,7 @@
         "custom/weather": {
             "format": "{}°c",
             "tooltip": true,
-            "exec": "wttrbar --date-format \"%d.%m.%Y\" -l en",
+            "exec": "wttrbar --nerd",
             "on-click": "~/.config/ignis/mutex-toggle.sh weather",
             "interval": 1800,
             "return-type": "json"
@@ -94,20 +94,27 @@
             "tooltip-format": "{timeTo}"
         },
         "network": {
-            "format-wifi": "{essid} ({signalStrength}%) {icon}",
-            "format-ethernet": "  {ifname}",
+            "format-wifi": "{icon}",
+            "format-ethernet": " ",
             "format-icons": [" ", "󰤨 ", "󰤥 ", "󰤢 ", "󰤟 ", "󰤫 "],
-            "tooltip-format": "  {ifname} via {gwaddr}",
-            "format-linked": "  {ifname} (No IP)",
-            "format-disconnected": "Disconnected 󰤮  {ifname}",
+            "tooltip-format": "{ifname}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+            "tooltip-format-ethernet": "{ifname}\nDown Speed: {bandwidthDownBits}\nUp Speed: {bandwidthUpBits}",
+            "format-disconnected": "󰤮 ",
             "on-click": "/home/yoyomu/.config/ignis/mutex-toggle.sh wifi"
+        },
+        "bluetooth": {
+            "format": "",
+            "format-disabled": "󰂲 {status}",
+            "format-connected": "󰂱 {num_connections}",
+            "tooltip-format": "Devices connected: {num_connections}"
         },
         "pulseaudio": {
             "scroll-step": 5,
             "format": "{icon} {volume}%",
-            "format-bluetooth": " {icon} {volume}%",
-            "format-bluetooth-muted": "  ",
-            "format-muted": "  {volume}%",
+            "format-bluetooth": "{icon} {volume}%",
+            "format-bluetooth-muted": " ",
+            "format-muted": " ",
             "format-icons": {
                 "headphone": "  ",
                 "headset":  "󰋎 ",

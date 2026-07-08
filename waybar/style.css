@@ -58,11 +58,15 @@ button:hover {
 #backlight,
 #pulseaudio,
 #network,
+#bluetooth,
 #tray,
 #mpd {
     background: transparent;
 	padding: 0 4px;
 	color: #ffffff;
+}
+#bluetooth {
+	padding-left: 4px;
 }
 #custom-weather.sunny,
 #custom-weather.lightrain,
@@ -70,6 +74,7 @@ button:hover {
 #custom-weather.heavyrain,
 #custom-weather.cloudy,
 #custom-weather.fog {
+    padding-left: 6px;
 	color: #ffffff;
 }
 #custom-weather {
