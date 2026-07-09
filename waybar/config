@@ -107,7 +107,8 @@
             "format": "",
             "format-disabled": "󰂲",
             "format-connected": "󰂱 {num_connections}",
-            "tooltip-format": "Devices connected: {num_connections}"
+            "tooltip-format": "Devices connected: {num_connections}",
+            "on-click": "/home/yoyomu/.config/ignis/mutex-toggle.sh bluetooth-island"
         },
         "pulseaudio": {
             "scroll-step": 5,

@@ -199,8 +199,8 @@ def main():
                 return
 
             out = os.path.join(SCREENSHOT_DIR, f"window_{timestamp()}.png")
-            spawn_delayed(["grim", "-g", geo, out])
-            start_countdown(app.quit)
+            spawn_delayed(["grim", "-g", geo, out], delay=0)
+            app.quit()
         else:
             if recording["kind"]:
                 gsr_stop()
@@ -241,10 +241,10 @@ def main():
 
             out = os.path.join(SCREENSHOT_DIR, f"monitor_{timestamp()}.png")
             if name:
-                spawn_delayed(["grim", "-o", name, out])
+                spawn_delayed(["grim", "-o", name, out], delay=0)
             else:
-                spawn_delayed(["grim", "-g", selected, out])
-            start_countdown(app.quit)
+                spawn_delayed(["grim", "-g", selected, out], delay=0)
+            app.quit()
         else:
             if recording["kind"]:
                 gsr_stop()
@@ -276,8 +276,8 @@ def main():
                 return
 
             out = os.path.join(SCREENSHOT_DIR, f"region_{timestamp()}.png")
-            spawn_delayed(["grim", "-g", geo, out])
-            start_countdown(app.quit)
+            spawn_delayed(["grim", "-g", geo, out], delay=0)
+            app.quit()
         else:
             if recording["kind"]:
                 gsr_stop()
