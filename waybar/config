@@ -143,7 +143,7 @@
         }
       },
       "custom/cava": {
-          "exec": "~/.config/waybar/scripts/cava.sh",
+          "exec": "~/.config/waybar/cava.sh",
           "format": "{}",
           "on-click": "~/.config/ignis/mutex-toggle.sh eq",
           "tooltip": false
